@@ -1,26 +1,30 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
-
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
-];
+import beforeEachFun from "./beforeEachFun";
+import afterEachFun from "./afterEachFun";
+import routerList from "./routerList";
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
+  routes: routerList,
+});
+
+//进入路由前
+router.beforeEach(beforeEachFun);
+//进入路由后
+router.afterEach(afterEachFun);
+// 处理路由报错
+router.onError((error) => {
+  const pattern = /Loading chunk (\d)+ failed/g;
+  const isChunkLoadFailed = error.message.match(pattern);
+  const targetPath = router.history.pending.fullPath;
+  if (isChunkLoadFailed) {
+    try {
+      console.log("当前网络不稳定或不安全，请更换网络再点击<确定>试试");
+    } catch (err) {
+      console.error(err);
+      router.replace(targetPath);
+    }
+  }
 });
 
 export default router;
