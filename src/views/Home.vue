@@ -41,6 +41,7 @@
       class="mask"
       :class="showMenu ? 'maskShow' : ''"
       id="navMenuMask"
+      @click="showMenu = !showMenu"
     ></div>
     <div>
       <br />
