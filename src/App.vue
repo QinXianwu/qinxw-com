@@ -3,7 +3,36 @@
   <div id="bgDarkMask"></div>
   <router-view />
 </template>
+<script>
+// html禁止使用右键
+// function click() {
+//   if (event.button == 2) {
+//     alert("右键已经被禁用了喔！");
+//   }
+// }
+// document.onmousedown = click;
+//禁止使用F12
+window.onkeydown =
+  window.onkeyup =
+  window.onkeypress =
+    function (event) {
+      // 判断是否按下F12，F12键码为123
+      if (event.keyCode === 123) {
+        event.preventDefault(); // 阻止默认事件行为
+        window.event.returnValue = false;
+      }
+    };
+export default {
+  created() {
+    console.log(`
+    https://qinxw.cn
 
+    秦贤武的个人网站
+    原创作品，保留所有权利。`);
+    console.log("Last updated: Oct 11, 2021");
+  },
+};
+</script>
 <style lang="less">
 @import url("./assets/styles/index.less");
 
@@ -24,5 +53,14 @@
   transition: transform 1.5s, opacity 1s;
   transform: scale(1.05);
   opacity: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }
 </style>
