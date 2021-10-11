@@ -35,8 +35,10 @@
           <div class="navLink-border"><div class="border-bottom"></div></div>
         </div>
       </div>
+      <!-- 菜单按钮 -->
       <span class="btnMenu" id="btnMenu1" @click="showMenu = !showMenu"></span>
     </div>
+    <!-- 遮挡层 -->
     <div
       class="mask"
       :class="showMenu ? 'maskShow' : ''"
@@ -191,12 +193,12 @@ export default {
 .navLinkBox {
   position: absolute;
   right: 10rem;
-  font-size: 1rem;
   transition: all 0.3s;
   .navLink {
     width: 4rem;
     height: 2.8rem;
     line-height: 2.8rem;
+    font-size: 1rem;
     margin: 0 1.7rem;
     text-align: center;
     border-radius: 0.4rem;
@@ -290,7 +292,7 @@ export default {
 
 @media screen and (max-width: 900px) {
   .nav .navLogoBox {
-    left: 6.5rem;
+    left: 5.5rem;
   }
   .navLinkBox {
     right: 5rem;
