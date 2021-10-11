@@ -191,7 +191,7 @@ export default {
 .navLinkBox {
   position: absolute;
   right: 10rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: all 0.3s;
   .navLink {
     width: 4rem;
