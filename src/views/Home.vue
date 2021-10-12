@@ -1,12 +1,13 @@
 <template>
-  <div id="home">
+  <div id="home" ref="home">
     <div id="topBg" class="loaded"></div>
     <div id="bgDarkMask"></div>
     <!-- 导航栏 -->
-    <Nav />
+    <Nav @navTo="navTo" />
     <!-- 遮挡层 -->
     <Mask
       :showMask="showMenu"
+      @navTo="navTo"
       @onEventClick="
         showMenu ? $store.commit('page/setShowMenu', !showMenu) : ''
       "
@@ -16,10 +17,12 @@
       <h1>知行合一.</h1>
       <span class=""></span>
     </div>
-    <div id="scrollDown"><span id="scrollDownIcon"></span></div>
+    <div id="scrollDown">
+      <span id="scrollDownIcon" @click="navTo(1)"></span>
+    </div>
   </div>
   <div class="main">
-    <div id="about">
+    <div id="about" ref="about">
       <h3>关于我</h3>
       <br />
       <br />
@@ -53,7 +56,7 @@
       <br />
       <br />
     </div>
-    <div id="work">
+    <div id="work" ref="work">
       <h3>我的作品</h3>
       <br />
       <br />
@@ -129,7 +132,7 @@
       <br />
       <br />
     </div>
-    <div id="log">1111</div>
+    <div id="log" ref="log">1111</div>
     <footer>123</footer>
   </div>
 </template>
@@ -145,7 +148,21 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    navTo(cur) {
+      let offsetScrollToList = [
+        { name: "home", offsetHeight: 0 },
+        { name: "about", offsetHeight: this.$refs.about.offsetHeight | 0 },
+        { name: "work", offsetHeight: this.$refs.work.offsetHeight | 0 },
+      ];
+      // let scrollTop = document.documentElement.scrollTop; // 滚动条位置
+      window.scrollTo(0, offsetScrollToList[cur].offsetHeight);
+      console.log();
+      // this.$nextTick(() => {
+      //   this.$refs.DOM.scrollTop(0, offsetScrollToList[cur].offsetHeight);
+      // });
+    },
+  },
   computed: {
     showMenu() {
       return this.$store.state.page.showMenu;
@@ -210,6 +227,9 @@ export default {
     cursor: pointer;
     transition: 0.25s;
     animation: twinkle 2s 2s;
+    &:hover {
+      border-color: rgba(255, 255, 255, 1);
+    }
   }
 }
 
@@ -227,6 +247,7 @@ export default {
 #work {
   background-color: rgb(245, 245, 245);
 }
+
 #about,
 #log,
 #work,

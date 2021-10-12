@@ -11,16 +11,16 @@
       </div>
     </div>
     <div class="navLinkBox flex">
-      <div class="navLink column">
-        <a href="#home">首页</a>
+      <div class="navLink column" @click="navTo(0)">
+        <a>首页</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div class="navLink column">
-        <a href="#about">关于</a>
+      <div class="navLink column" @click="navTo(1)">
+        <a>关于</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div class="navLink column">
-        <a href="#work">作品</a>
+      <div class="navLink column" @click="navTo(2)">
+        <a>作品</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
       <div
@@ -90,6 +90,10 @@ export default {
       );
       this.$store.commit("page/setSwitchThemeUrl");
     },
+    // 调整滚动条
+    navTo(cur) {
+      this.$emit("navTo", cur);
+    },
   },
   computed: {
     showMenu() {
@@ -121,7 +125,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.693);
   -webkit-backdrop-filter: blur(2.1rem) saturate(180%);
   backdrop-filter: blur(2.1rem) saturate(180%);
-  box-shadow: rgb(0 0 0 / 10%) 0 0.5rem 1.6rem;
+  box-shadow: 0rem 0.5rem 1.6rem #00000028;
   color: #333;
 
   .navLinkBox .navLink a {

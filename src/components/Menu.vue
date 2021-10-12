@@ -6,9 +6,9 @@
       id="btnMenu2"
       @click="$store.commit('page/setShowMenu', !showMenu)"
     ></span>
-    <a class="navLink" href="#home">首页</a>
-    <a class="navLink" href="#about">关于</a>
-    <a class="navLink" href="#work">作品</a>
+    <a class="navLink" @click="navTo(0)">首页</a>
+    <a class="navLink" @click="navTo(1)">关于</a>
+    <a class="navLink" @click="navTo(2)">作品</a>
     <span class="dividingLine"></span>
     <a class="navLink" id="navMenuLinkSwitchTheme" @click="onSwitchTheme"
       >主题 <span id="navLinkTextCurrentTheme">{{ themeTitle }}</span></a
@@ -41,6 +41,10 @@ export default {
         this.switchTheme ? "浅色" : "深色"
       );
       this.$store.commit("page/setSwitchThemeUrl");
+    },
+    // 调整滚动条
+    navTo(cur) {
+      this.$emit("navTo", cur);
     },
   },
 };
