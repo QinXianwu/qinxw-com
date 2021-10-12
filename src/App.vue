@@ -1,6 +1,4 @@
 <template>
-  <div id="topBg" class="loaded"></div>
-  <div id="bgDarkMask"></div>
   <router-view />
 </template>
 <script>
@@ -24,37 +22,16 @@ window.onkeydown =
     };
 export default {
   created() {
-    console.log(`
-    https://qinxw.cn
-
-    秦贤武的个人网站
-    原创作品，保留所有权利。`);
-    console.log("Last updated: Oct 11, 2021");
+    console.info(
+      "%c 欢迎光临秦贤武的个人网站 \n\n",
+      `background:#2858f4d1;color:#FFF;font-size: 15px;padding: 7px 0 6px;border-radius: 10px;`,
+      `https://qinxw.cn \n\n 原创作品，保留所有权利。\n Last updated: Oct 11, 2021`
+    );
   },
 };
 </script>
 <style lang="less">
 @import url("./assets/styles/index.less");
-
-#topBg.loaded {
-  transform: scale(1);
-  opacity: 1;
-}
-
-#topBg {
-  z-index: -100;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat; // 背景图像将仅显示一次
-  background-size: cover; // 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域
-  background-position: center; // 定位背景图像
-  background-image: url(./assets/image/Home_TopBg0.jpg);
-  transition: transform 1.5s, opacity 1s;
-  transform: scale(1.05);
-  opacity: 0;
-}
-
 .flex {
   display: flex;
 }
