@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="nav flex sticky"> -->
-  <div class="nav flex">
+  <div class="nav flex" :class="isSticky ? 'sticky' : ''">
     <div class="navLogoBox flex">
       <div class="logo">
         <img :src="logoUrl" alt="" />
@@ -51,6 +51,7 @@ export default {
   data: function () {
     return {
       logoUrl,
+      isSticky: false,
       // AdaptationState: "0", // 四个阶段做适配 小于760(3)、900(2)、1230(1)、大于1230(0)
       // screenWidth: "", // 可视宽度
       // screenHeight: "", // 可视高度

@@ -3,7 +3,7 @@
     <div id="topBg" class="loaded"></div>
     <div id="bgDarkMask"></div>
     <!-- 导航栏 -->
-    <Nav @navTo="navTo" />
+    <Nav @navTo="navTo" ref="nav" />
     <!-- 遮挡层 -->
     <Mask
       :showMask="showMenu"
@@ -145,28 +145,57 @@ export default {
   name: "Home",
   components: { Mask, Nav, Menu },
   data() {
-    return {};
+    return {
+      curTop: 0,
+    };
   },
   methods: {
     navTo(cur) {
       let offsetScrollToList = [
-        { name: "home", offsetHeight: 0 },
-        { name: "about", offsetHeight: this.$refs.about.offsetHeight | 0 },
-        { name: "work", offsetHeight: this.$refs.work.offsetHeight | 0 },
+        { name: "home", scrollTop: 0 },
+        {
+          name: "about",
+          scrollTop: this.$refs.about.getBoundingClientRect().top | 0,
+        },
+        {
+          name: "work",
+          scrollTop: this.$refs.work.getBoundingClientRect().top | 0,
+        },
       ];
-      // console.log("滚动条位置", document.documentElement.scrollTop);
+      console.log("滚动条位置", document.documentElement.scrollTop);
       // console.log("目标地址", offsetScrollToList[cur].offsetHeight);
       // window.scrollTo(0, offsetScrollToList[cur].offsetHeight); // 无缓冲
+      let scrollTo =
+        document.documentElement.scrollTop + offsetScrollToList[cur].scrollTop;
       window.scrollTo({
-        top: offsetScrollToList[cur].offsetHeight,
-        behavior: "smooth", // 过渡效果
+        top: cur === 0 ? 0 : scrollTo,
+        behavior: "smooth", // 有缓冲-过渡效果
       });
+    },
+    // 监听滚动条配合nav显示效果
+    eventScroll() {
+      let scrollTop = document.documentElement.scrollTop;
+      let isSticky = this.$refs.nav && this.$refs.nav.isSticky;
+      let about_scrollTop =
+        (this.$refs.about && this.$refs.about.getBoundingClientRect().top) || 0;
+      if (scrollTop > scrollTop + about_scrollTop - 84) {
+        if (!isSticky) this.$refs.nav.isSticky = true;
+      } else {
+        if (isSticky) this.$refs.nav.isSticky = false;
+      }
     },
   },
   computed: {
     showMenu() {
       return this.$store.state.page.showMenu;
     },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.eventScroll, true);
+  },
+  unmounted() {
+    // 离开该页面需要移除这个监听的事件，不然会报错
+    window.removeEventListener("scroll", this.eventScroll);
   },
 };
 </script>
@@ -253,9 +282,10 @@ export default {
 #work,
 footer {
   width: 100%;
-  padding-top: 80px;
-  padding-bottom: 100px;
+  // 设置滚动条时，需要用节点自身距离顶部 top - 5rem - 2rem  (84px -> 1rem)
+  padding-top: 5rem;
+  padding-bottom: 2rem;
   text-align: center;
-  transition: 0.25s;
+  transition: 0.3s;
 }
 </style>
