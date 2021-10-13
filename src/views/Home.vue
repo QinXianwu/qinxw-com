@@ -7,15 +7,14 @@
     <!-- 遮挡层 -->
     <Mask
       :showMask="showMenu"
-      @navTo="navTo"
       @onEventClick="
         showMenu ? $store.commit('page/setShowMenu', !showMenu) : ''
       "
     />
-    <Menu />
+    <Menu @navTo="navTo" />
     <div id="topTitle">
-      <h1>知行合一.</h1>
-      <span class=""></span>
+      <h1>恰恰相反.</h1>
+      <h2 style="font-weight: 400">/* 你永远是唯一的自己，成不了别人 */</h2>
     </div>
     <div id="scrollDown">
       <span id="scrollDownIcon" @click="navTo(1)"></span>
@@ -138,9 +137,9 @@
 </template>
 
 <script>
-import Mask from "@/components/Mask.vue";
-import Nav from "@/components/Nav.vue";
-import Menu from "@/components/Menu.vue";
+import Mask from "@/components/Mask.vue"; // 遮挡层
+import Nav from "@/components/Nav.vue"; // 导航条
+import Menu from "@/components/Menu.vue"; // 导航条-菜单
 
 export default {
   name: "Home",
@@ -155,12 +154,13 @@ export default {
         { name: "about", offsetHeight: this.$refs.about.offsetHeight | 0 },
         { name: "work", offsetHeight: this.$refs.work.offsetHeight | 0 },
       ];
-      // let scrollTop = document.documentElement.scrollTop; // 滚动条位置
-      window.scrollTo(0, offsetScrollToList[cur].offsetHeight);
-      console.log();
-      // this.$nextTick(() => {
-      //   this.$refs.DOM.scrollTop(0, offsetScrollToList[cur].offsetHeight);
-      // });
+      // console.log("滚动条位置", document.documentElement.scrollTop);
+      // console.log("目标地址", offsetScrollToList[cur].offsetHeight);
+      // window.scrollTo(0, offsetScrollToList[cur].offsetHeight); // 无缓冲
+      window.scrollTo({
+        top: offsetScrollToList[cur].offsetHeight,
+        behavior: "smooth", // 过渡效果
+      });
     },
   },
   computed: {
