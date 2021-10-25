@@ -27,6 +27,16 @@ export default {
       `background:#2858f4d1;color:#FFF;font-size: 15px;padding: 7px 0 6px;border-radius: 10px;`,
       `https://qinxw.cn \n\n 原创作品，保留所有权利。\n Last updated: Oct 11, 2021`
     );
+    // this.$http.post("/login", { username: "123" }).then(
+    //   function (response) {
+    //     //响应成功回调
+    //     console.log("响应成功回调", response);
+    //   },
+    //   function (response) {
+    //     //响应错误回调
+    //     console.log("响应错误回调", response);
+    //   }
+    // );
   },
 };
 </script>

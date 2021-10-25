@@ -126,7 +126,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.693);
   -webkit-backdrop-filter: blur(2.1rem) saturate(180%);
   backdrop-filter: blur(2.1rem) saturate(180%);
-  box-shadow: 0rem 0.5rem 1.6rem #00000028;
+  box-shadow: 0rem 0.5rem 1.6rem #36363621;
   color: #333;
 
   .navLinkBox .navLink a {
@@ -146,6 +146,7 @@ export default {
     width: 3rem;
     height: 3rem;
     border-radius: 1.1rem;
+    box-shadow: 0 0 10rem #000;
     transition: 0.3s;
     img {
       width: 100%;

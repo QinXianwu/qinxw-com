@@ -12,9 +12,10 @@
       "
     />
     <Menu @navTo="navTo" />
-    <div id="topTitle">
+    <div id="topTitle" class="column">
       <h1>恰恰相反.</h1>
-      <h2 style="font-weight: 400">/* 你永远是唯一的自己，成不了别人 */</h2>
+      <span></span>
+      <h2>/* 你永远是唯一的自己，成不了别人 */</h2>
     </div>
     <div id="scrollDown">
       <span id="scrollDownIcon" @click="navTo(1)"></span>
@@ -22,114 +23,10 @@
   </div>
   <div class="main">
     <div id="about" ref="about">
-      <h3>关于我</h3>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <About />
     </div>
     <div id="work" ref="work">
-      <h3>我的作品</h3>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <Work />
     </div>
     <div id="log" ref="log">1111</div>
     <footer>123</footer>
@@ -140,10 +37,12 @@
 import Mask from "@/components/Mask.vue"; // 遮挡层
 import Nav from "@/components/Nav.vue"; // 导航条
 import Menu from "@/components/Menu.vue"; // 导航条-菜单
+import About from "@/components/About.vue"; // 关于
+import Work from "@/components/Work.vue"; // 作品
 
 export default {
   name: "Home",
-  components: { Mask, Nav, Menu },
+  components: { Mask, Nav, Menu, About, Work },
   data() {
     return {
       curTop: 0,
@@ -162,7 +61,7 @@ export default {
           scrollTop: this.$refs.work.getBoundingClientRect().top | 0,
         },
       ];
-      console.log("滚动条位置", document.documentElement.scrollTop);
+      // console.log("滚动条位置", document.documentElement.scrollTop);
       // console.log("目标地址", offsetScrollToList[cur].offsetHeight);
       // window.scrollTo(0, offsetScrollToList[cur].offsetHeight); // 无缓冲
       let scrollTo =
@@ -225,15 +124,26 @@ export default {
   width: 100%;
   text-align: center;
   color: #fff;
+  align-items: center;
 
   h1 {
+    width: 100%;
+    text-align: center;
     line-height: 4rem;
     padding: 2rem;
+    margin-bottom: 0.5rem;
     font-family: "Microsoft Yahei", PingFangSC-Regular;
     font-size: 4rem;
     font-weight: 400;
     color: #fff;
-    background: #a1a1a16f;
+  }
+  h2 {
+    font-weight: 400;
+  }
+  span {
+    width: 3rem;
+    height: 0.2rem;
+    background: #03d300;
   }
 }
 #scrollDown {
