@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>我的作品</h3>
+    <div class="title">我的作品</div>
     <br />
     <br />
     <br />
@@ -43,4 +43,8 @@ export default {
   },
 };
 </script>
-<style></style>
+<style lang="less" scoped>
+.title {
+  font-size: 1.75rem;
+}
+</style>

@@ -22,6 +22,9 @@ window.onkeydown =
     };
 export default {
   created() {
+    // console.log(
+    //   this.ajax({ url: "https://m.maoyan.com/ajax/movieOnInfoList" })
+    // );
     console.info(
       "%c 欢迎光临秦贤武的个人网站 \n\n",
       `background:#2858f4d1;color:#FFF;font-size: 15px;padding: 7px 0 6px;border-radius: 10px;`,
