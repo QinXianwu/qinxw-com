@@ -55,7 +55,6 @@ export default {
     });
     if (!res) return;
     res = JSON.parse(res);
-    console.log(res);
     this.yiyan = res.data.constant;
   },
   methods: {
@@ -71,9 +70,6 @@ export default {
           scrollTop: this.$refs.work.getBoundingClientRect().top | 0,
         },
       ];
-      // console.log("滚动条位置", document.documentElement.scrollTop);
-      // console.log("目标地址", offsetScrollToList[cur].offsetHeight);
-      // window.scrollTo(0, offsetScrollToList[cur].offsetHeight); // 无缓冲
       let scrollTo =
         document.documentElement.scrollTop + offsetScrollToList[cur].scrollTop;
       window.scrollTo({
