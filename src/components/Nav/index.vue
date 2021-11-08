@@ -119,6 +119,8 @@ export default {
   font-size: 2rem;
   align-items: center;
   color: #fff;
+  background: #333;
+  opacity: 0.9;
 }
 .nav.sticky {
   z-index: 99;
