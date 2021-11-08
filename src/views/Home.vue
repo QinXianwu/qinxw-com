@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import Mask from "@/components/Mask.vue"; // 遮挡层
-import Nav from "@/components/Nav.vue"; // 导航条
-import Menu from "@/components/Menu.vue"; // 导航条-菜单
-import About from "@/components/About.vue"; // 关于
-import Work from "@/components/Work.vue"; // 作品
+import Mask from "@/components/Mask/index"; // 遮挡层
+import Nav from "@/components/Nav/index"; // 导航条
+import Menu from "@/components/Menu/index"; // 导航条-菜单
+import About from "@/components/About/index"; // 关于
+import Work from "@/components/Work/index"; // 作品
 
 export default {
   name: "Home",

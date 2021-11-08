@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import logoUrl from "../assets/image/logo.jpg";
+import logoUrl from "@/assets/image/logo.jpg";
 export default {
   name: "",
   props: {},
@@ -239,7 +239,7 @@ export default {
   background-color: #fff;
   right: 2rem;
   width: 1.6rem;
-  height: 0.15rem;
+  height: 0.1rem;
   padding: 0.3rem 0;
   border-top: 0.15rem solid;
   border-bottom: 0.15rem solid;
