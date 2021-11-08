@@ -15,7 +15,7 @@
     <div id="topTitle" class="column">
       <h1>恰恰相反.</h1>
       <span></span>
-      <h2>/* 你永远是唯一的自己，成不了别人 */</h2>
+      <h2>/* {{ yiyan }} */</h2>
     </div>
     <div id="scrollDown">
       <span id="scrollDownIcon" @click="navTo(1)"></span>
@@ -46,7 +46,17 @@ export default {
   data() {
     return {
       curTop: 0,
+      yiyan: "你永远是唯一的自己，成不了别人",
     };
+  },
+  async created() {
+    let res = await this.$http({
+      url: "https://api.muxiaoguo.cn/api/yiyan",
+    });
+    if (!res) return;
+    res = JSON.parse(res);
+    console.log(res);
+    this.yiyan = res.data.constant;
   },
   methods: {
     navTo(cur) {
