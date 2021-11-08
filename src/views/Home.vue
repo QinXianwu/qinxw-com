@@ -127,7 +127,6 @@ export default {
   align-items: center;
 
   h1 {
-    width: 100%;
     text-align: center;
     line-height: 4rem;
     padding: 2rem;
