@@ -12,11 +12,7 @@
       "
     />
     <Menu @navTo="navTo" />
-    <div id="topTitle" class="column">
-      <h1>恰恰相反.</h1>
-      <span></span>
-      <h2>/* {{ yiyan }} */</h2>
-    </div>
+    <div id="content" class="column"></div>
     <div id="scrollDown">
       <span id="scrollDownIcon" @click="navTo(1)"></span>
     </div>
@@ -129,32 +125,13 @@ export default {
   opacity: 0;
 }
 
-#topTitle {
+#content {
   position: absolute;
   top: 28%;
   width: 100%;
   text-align: center;
   color: #fff;
   align-items: center;
-
-  h1 {
-    text-align: center;
-    line-height: 4rem;
-    padding: 2rem;
-    margin-bottom: 0.5rem;
-    font-family: "Microsoft Yahei", PingFangSC-Regular;
-    font-size: 4rem;
-    font-weight: 400;
-    color: #fff;
-  }
-  h2 {
-    font-weight: 400;
-  }
-  span {
-    width: 3rem;
-    height: 0.2rem;
-    background: #03d300;
-  }
 }
 #scrollDown {
   position: absolute;
@@ -163,7 +140,7 @@ export default {
   #scrollDownIcon {
     position: absolute;
     top: 3rem;
-    left: calc(50% - 0.8rem);
+    left: 48.5%;
     border-right: 0.2rem solid;
     border-top: 0.2rem solid;
     border-color: rgba(255, 255, 255, 0.5);
@@ -202,7 +179,6 @@ export default {
 #work,
 footer {
   width: 100%;
-  // 设置滚动条时，需要用节点自身距离顶部 top - 5rem - 2rem  (84px -> 1rem)
   padding-top: 5rem;
   padding-bottom: 2rem;
   text-align: center;

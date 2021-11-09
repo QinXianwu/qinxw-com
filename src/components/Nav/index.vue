@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="nav flex sticky"> -->
   <div class="nav flex" :class="isSticky ? 'sticky' : ''">
     <div class="navLogoBox flex">
       <div class="logo">
@@ -52,37 +51,9 @@ export default {
     return {
       logoUrl,
       isSticky: false,
-      // AdaptationState: "0", // 四个阶段做适配 小于760(3)、900(2)、1230(1)、大于1230(0)
-      // screenWidth: "", // 可视宽度
-      // screenHeight: "", // 可视高度
     };
   },
-  created() {
-    // console.log("页面宽度", window.innerWidth);
-    // this.screenWidth = document.body.clientWidth;
-    // this.screenHeight = document.body.clientHeight;
-    // this.AdaptationState_Width(this.screenWidth);
-    // window.onresize = () => {
-    //   return (() => {
-    //     this.screenWidth = document.body.clientWidth;
-    //     this.screenHeight = document.body.clientHeight;
-    //     this.AdaptationState_Width(this.screenWidth);
-    //   })();
-    // };
-  },
   methods: {
-    // AdaptationState_Width(width) {
-    //   let autoWidth = width;
-    //   if (autoWidth < 1230 && autoWidth > 900) {
-    //     this.AdaptationState = "1";
-    //   } else if (autoWidth < 900 && autoWidth > 760) {
-    //     this.AdaptationState = "2";
-    //   } else if (autoWidth < 760) {
-    //     this.AdaptationState = "3";
-    //   } else {
-    //     this.AdaptationState = "0";
-    //   }
-    // },
     onSwitchTheme() {
       this.$store.commit("page/setSwitchTheme", !this.switchTheme);
       this.$store.commit(
@@ -119,15 +90,14 @@ export default {
   font-size: 2rem;
   align-items: center;
   color: #fff;
-  background: #333;
+  background: rgba(51, 51, 51, 0.979);
+  backdrop-filter: blur(2.1rem) saturate(180%);
   opacity: 0.9;
 }
 .nav.sticky {
   z-index: 99;
   position: fixed;
   background-color: rgba(255, 255, 255, 0.693);
-  -webkit-backdrop-filter: blur(2.1rem) saturate(180%);
-  backdrop-filter: blur(2.1rem) saturate(180%);
   box-shadow: 0rem 0.5rem 1.6rem #36363621;
   color: #333;
 
