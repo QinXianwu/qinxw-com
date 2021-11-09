@@ -46,16 +46,17 @@ export default {
   data() {
     return {
       curTop: 0,
-      yiyan: "你永远是唯一的自己，成不了别人",
+      yiyan: "继续跑，别停下，累了就歇会，但请你别停下。",
     };
   },
   async created() {
-    let res = await this.$http({
-      url: "https://api.muxiaoguo.cn/api/yiyan",
+    let res = await this.$http.muxiaoguo.GetTianQi({
+      type: "2",
+      city: "广州",
     });
     if (!res) return;
     res = JSON.parse(res);
-    this.yiyan = res.data.constant;
+    console.log(res);
   },
   methods: {
     navTo(cur) {
