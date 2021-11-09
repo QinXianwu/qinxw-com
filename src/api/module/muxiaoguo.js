@@ -7,7 +7,7 @@ export default {
   /**
    * 一言
    * @param {Object} params 请求参数
-   * 空
+   * 空参数
    * @returns {Promise([error,res])}
    */
   GetYiYan(params) {

@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import smoothscroll from "smoothscroll-polyfill";
+
 import Mask from "@/components/Mask/index"; // 遮挡层
 import Nav from "@/components/Nav/index"; // 导航条
 import Menu from "@/components/Menu/index"; // 导航条-菜单
@@ -97,6 +99,8 @@ export default {
     },
   },
   mounted() {
+    // 解决移动端 scrollTo 的 behavior: "smooth" 无效的问题
+    smoothscroll.polyfill();
     window.addEventListener("scroll", this.eventScroll, true);
   },
   unmounted() {

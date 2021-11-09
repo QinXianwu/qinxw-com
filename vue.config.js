@@ -57,9 +57,9 @@ module.exports = {
     // sass-loader 时，使用 `{ sass: { ... } }`。
     loaderOptions: {},
 
-    // 为所有的 CSS 及其预处理文件开启 CSS Modules。
+    // 为所有的 CSS 及其预处理文件开启 CSS Modules(vue3-Modules已被弃用，使用requireModuleExtension)。
     // 这个选项不会影响 `*.vue` 文件。
-    modules: false,
+    requireModuleExtension: false,
   },
 
   // 在生产环境下为 Babel 和 TypeScript 使用 `thread-loader`
@@ -72,7 +72,7 @@ module.exports = {
 
   // 配置 webpack-dev-server 行为。
   devServer: {
-    open: process.platform === "darwin",
+    open: true,
     host: "0.0.0.0",
     port: 8080,
     https: false,
@@ -80,11 +80,9 @@ module.exports = {
     proxy: {
       "/muxiaoguo": {
         target: "https://api.muxiaoguo.cn",
-        changeOrigin: true,
         secure: false,
-        pathRewrite: {
-          "^/api": "/static/mock", // 请求数据路径别名,这里是注意将static/mock放入public文件夹
-        },
+        changeOrigin: true,
+        pathRewrite: {},
       },
     },
     before: (app) => {
