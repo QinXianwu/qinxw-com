@@ -2,8 +2,10 @@
   <div id="home" ref="home">
     <div id="topBg" class="loaded"></div>
     <div id="bgDarkMask"></div>
-    <!-- 导航栏 -->
-    <Nav @navTo="navTo" ref="nav" />
+    <div id="nav">
+      <!-- 导航栏 -->
+      <Nav @navTo="navTo" ref="nav" />
+    </div>
     <!-- 遮挡层 -->
     <Mask
       :showMask="showMenu"
@@ -137,6 +139,27 @@ export default {
     font-size: 3rem;
     color: rgb(88, 89, 92);
     font-weight: bold;
+    line-height: 4rem;
+    transition: all 0.3s;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #content .title {
+    font-size: 2.3rem;
+    line-height: 3.3rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  #content .title {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  #content .title {
+    font-size: 1.7rem;
+    line-height: 2.7rem;
   }
 }
 #scrollDown {

@@ -85,7 +85,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .nav {
-  width: 100%;
+  width: 99%;
   height: 4rem;
   font-size: 2rem;
   border-radius: 1rem;
@@ -94,6 +94,7 @@ export default {
   background: rgba(51, 51, 51, 0.979);
   backdrop-filter: blur(2.1rem) saturate(180%);
   opacity: 0.9;
+  margin: 0 0.5%;
 }
 .nav.sticky {
   z-index: 99;
