@@ -64,6 +64,7 @@ export default {
   font-size: 0;
   transition: 0.3s;
   opacity: 0;
+  border-radius: 1rem;
 
   .navLink {
     display: block;
@@ -113,7 +114,7 @@ export default {
   border-color: rgba(0, 0, 0, 0.6);
   background-color: rgba(0, 0, 0, 0.6);
   color: rgba(0, 0, 0, 0.6);
-  top: 1.5rem;
+  top: 1rem;
   right: 2rem;
   width: 1.6rem;
   height: 0.13rem;

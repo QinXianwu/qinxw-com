@@ -12,7 +12,9 @@
       "
     />
     <Menu @navTo="navTo" />
-    <div id="content" class="column"></div>
+    <div id="content" class="column">
+      <div class="title">浮生若梦，为欢几何</div>
+    </div>
     <div id="scrollDown">
       <span id="scrollDownIcon" @click="navTo(1)"></span>
     </div>
@@ -127,11 +129,15 @@ export default {
 
 #content {
   position: absolute;
-  top: 28%;
+  top: 35%;
   width: 100%;
   text-align: center;
   color: #fff;
-  align-items: center;
+  .title {
+    font-size: 3rem;
+    color: rgb(88, 89, 92);
+    font-weight: bold;
+  }
 }
 #scrollDown {
   position: absolute;

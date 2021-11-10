@@ -86,8 +86,9 @@ export default {
 <style lang="less" scoped>
 .nav {
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   font-size: 2rem;
+  border-radius: 1rem;
   align-items: center;
   color: #fff;
   background: rgba(51, 51, 51, 0.979);
