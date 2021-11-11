@@ -66,6 +66,12 @@ export default {
   opacity: 0;
   border-radius: 1rem;
 
+  webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+
   .navLink {
     display: block;
     padding: 1rem 30px;
@@ -98,7 +104,9 @@ export default {
 }
 
 #navMenu.showNavMenu {
-  right: 0;
+  // right: 0;
+  // 解决移动端菜单显隐卡顿bug
+  transform: translateX(-15rem);
   opacity: 1;
 }
 
