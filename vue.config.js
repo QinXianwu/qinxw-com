@@ -26,11 +26,6 @@ module.exports = {
     subpage: "src/main.js" /*注意这个是*/,
   },
 
-  // 是否在保存的时候使用 `eslint-loader` 进行检查。
-  // 有效的值：`ture` | `false` | `"error"`
-  // 当设置为 `"error"` 时，检查出的错误会触发编译失败。
-  lintOnSave: true,
-
   // 使用带有浏览器内编译器的完整构建版本
   // 查阅 https://cn.vuejs.org/v2/guide/installation.html#运行时-编译器-vs-只包含运行时
   runtimeCompiler: false,
@@ -76,7 +71,8 @@ module.exports = {
     host: "0.0.0.0",
     port: 8080,
     https: false,
-    hotOnly: true, // 保存更新浏览器
+    hotOnly: false,
+    hot: true,
     proxy: {
       "/muxiaoguo": {
         target: "https://api.muxiaoguo.cn",
@@ -89,6 +85,7 @@ module.exports = {
       console.log(app);
     },
   },
+  lintOnSave: false,
 
   // 三方插件的选项
   pluginOptions: {

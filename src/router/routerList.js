@@ -8,7 +8,7 @@ const routerList = [
     component: Home,
   },
   {
-    path: "/:pathMatch(.*)",
+    path: "/:pathMatch(.*)", // 直接 * 会报错
     name: "_404_",
     component: _404_,
   },

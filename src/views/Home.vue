@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import smoothscroll from "smoothscroll-polyfill"; // 解决移动端滚动过渡失效问题
+import smoothscroll from "smoothscroll-polyfill"; // 解决移动端滚动失效bug
 
 import Mask from "@/components/Mask/index"; // 遮挡层
 import Nav from "@/components/Nav/index"; // 导航条
@@ -177,7 +177,6 @@ export default {
 #work {
   background-color: rgb(245, 245, 245);
 }
-
 #about,
 #log,
 #work,
