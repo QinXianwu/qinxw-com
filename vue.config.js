@@ -76,7 +76,7 @@ module.exports = {
     host: "0.0.0.0",
     port: 8080,
     https: false,
-    hotOnly: false,
+    hotOnly: true, // 保存更新浏览器
     proxy: {
       "/muxiaoguo": {
         target: "https://api.muxiaoguo.cn",

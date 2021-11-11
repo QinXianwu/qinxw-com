@@ -2,8 +2,8 @@
   <div id="home" ref="home">
     <div id="topBg" class="loaded"></div>
     <div id="bgDarkMask"></div>
+    <!-- 导航栏 -->
     <div id="nav">
-      <!-- 导航栏 -->
       <Nav @navTo="navTo" ref="nav" />
     </div>
     <!-- 遮挡层 -->
@@ -13,10 +13,11 @@
         showMenu ? $store.commit('page/setShowMenu', !showMenu) : ''
       "
     />
+    <!-- 菜单 -->
     <Menu @navTo="navTo" />
-    <div id="content" class="column">
-      <!-- <div class="title">浮生若梦，为欢几何。</div> -->
-    </div>
+    <!-- 主内容 -->
+    <div id="content" class="column"></div>
+    <!-- 向下滚动按钮 -->
     <div id="scrollDown">
       <span id="scrollDownIcon" @click="navTo(1)"></span>
     </div>
@@ -34,7 +35,7 @@
 </template>
 
 <script>
-import smoothscroll from "smoothscroll-polyfill";
+import smoothscroll from "smoothscroll-polyfill"; // 解决移动端滚动过渡失效问题
 
 import Mask from "@/components/Mask/index"; // 遮挡层
 import Nav from "@/components/Nav/index"; // 导航条
@@ -48,7 +49,6 @@ export default {
   data() {
     return {
       curTop: 0,
-      yiyan: "继续跑，别停下，累了就歇会，但请你别停下。",
     };
   },
   async created() {
@@ -135,34 +135,8 @@ export default {
   width: 100%;
   text-align: center;
   color: #fff;
-  .title {
-    font-size: 3rem;
-    color: rgb(88, 89, 92);
-    font-weight: bold;
-    line-height: 4rem;
-    transition: all 0.3s;
-    writing-mode: vertical-rl;
-  }
 }
 
-@media screen and (max-width: 500px) {
-  #content .title {
-    font-size: 2.3rem;
-    line-height: 3.3rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  #content .title {
-    font-size: 2rem;
-    line-height: 3rem;
-  }
-}
-@media screen and (max-width: 300px) {
-  #content .title {
-    font-size: 1.7rem;
-    line-height: 2.7rem;
-  }
-}
 #scrollDown {
   position: absolute;
   bottom: 6rem;

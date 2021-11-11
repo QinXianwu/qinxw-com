@@ -1,9 +1,6 @@
 <template>
   <div>
     <div class="title">关于我</div>
-    <div class="container">
-      <div class="box"></div>
-    </div>
     <br />
     <br />
     <br />
@@ -49,53 +46,5 @@ export default {
 <style lang="less" scoped>
 .title {
   font-size: 1.75rem;
-}
-.container {
-  background: #f0f0f0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.box {
-  border-radius: 20px;
-  width: 2rem;
-  height: 2rem;
-  background: #f0f0f0;
-  box-shadow: 0 0 0 #cccccc, 0 0 0 #ffffff, 10px 10px 10px #cccccc inset,
-    -10px -10px 10px #ffffff inset;
-  animation: anime 3s cubic-bezier(0.16, 1, 0.3, 1) 1s infinite alternate;
-  // animation-fill-mode: forwards;
-}
-
-@keyframes anime {
-  0% {
-    width: 2rem;
-    height: 2rem;
-    background: #f0f0f0;
-    box-shadow: 0 0 0 #cccccc, 0 0 0 #ffffff, 10px 10px 10px #cccccc inset,
-      -10px -10px 10px #ffffff inset;
-  }
-  25% {
-    width: 2rem;
-    height: 2rem;
-    background: #f8f8f8;
-    box-shadow: 10px 10px 10px #cccccc, 10px 10px 10px #ffffff,
-      0 0 0 #cccccc inset, 0 0 0 #ffffff inset;
-  }
-  50% {
-    width: 4rem;
-    height: 4rem;
-    background: #f8f8f8;
-    box-shadow: 10px 10px 10px #cccccc, 10px 10px 10px #ffffff,
-      0 0 0 #cccccc inset, 0 0 0 #ffffff inset;
-  }
-  100% {
-    width: 98%;
-    height: 4rem;
-    background: #fafafa;
-    box-shadow: 40px 40px 40px #cccccc, 0 0 0 #ffffff, 0 0 0 #cccccc inset,
-      2px 2px 2px #ffffff inset;
-  }
 }
 </style>
