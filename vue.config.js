@@ -26,26 +26,16 @@ module.exports = {
     subpage: "src/main.js" /*注意这个是*/,
   },
 
-  // 使用带有浏览器内编译器的完整构建版本
-  // 查阅 https://cn.vuejs.org/v2/guide/installation.html#运行时-编译器-vs-只包含运行时
-  runtimeCompiler: false,
-
-  // babel-loader 默认会跳过 node_modules 依赖。
-  // 通过这个选项可以显式转译一个依赖。
-  transpileDependencies: [
-    /* string or regex */
-  ],
-
-  // 是否为生产环境构建生成 source map？
-  productionSourceMap: true,
+  // 是否为生产环境构建生成 source map（浏览器显示打印的位置）
+  productionSourceMap: false,
 
   // CSS 相关选项
   css: {
     // 将组件内的 CSS 提取到一个单独的 CSS 文件 (只用在生产环境中)
     // 也可以是一个传递给 `extract-text-webpack-plugin` 的选项对象
-    extract: true,
+    extract: false, // 与css样式热部署不兼容
 
-    // 是否开启 CSS source map？
+    // 是否为 CSS 开启 source map。设置为 true 之后可能会影响构建的性能
     sourceMap: false,
 
     // 为预处理器的 loader 传递自定义选项。比如传递给
