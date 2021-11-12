@@ -21,8 +21,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .mask {
-  z-index: -99;
   position: fixed;
+  z-index: -99;
   left: 0;
   top: 0;
   width: 100%;

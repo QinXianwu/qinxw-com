@@ -1,13 +1,13 @@
 <template>
   <div class="about">
     <div class="head">
-      <div class="title">关于我</div>
+      <div class="title">关于我De</div>
       <div class="underscore"></div>
     </div>
     <div class="container">
       <div class="label_list">
         <div class="label">00后</div>
-        <div class="label warriors">NBA - Warriors 球迷</div>
+        <div class="label warriors">NBA球迷 - Warriors</div>
         <div class="label">理科生</div>
       </div>
       <div class="name">我是{{ name }}。</div>
@@ -78,6 +78,7 @@ export default {
       background: #e9e9e9;
       margin: 0 0.3rem;
       border-radius: 0.3rem;
+      cursor: pointer;
       transition: all 0.2s;
     }
     .label:hover {
