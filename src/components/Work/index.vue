@@ -28,6 +28,7 @@ export default {
           logo_url: MeetFood,
           description: "描述",
         },
+        {},
       ],
     };
   },
@@ -64,13 +65,10 @@ export default {
     width: 17rem;
     height: 17rem;
     padding: 1rem;
+    margin: 1rem;
     background: #fff;
     box-shadow: 0 0.1rem 0.3rem #999;
     transition: all 0.3s;
-    &:hover {
-      -webkit-animation: rotate-scale-up-hor 0.75s linear both;
-      animation: rotate-scale-up-hor 0.75s linear both;
-    }
   }
   .p_cell .logo {
     width: 17rem;

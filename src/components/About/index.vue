@@ -78,15 +78,15 @@ export default {
       background: #e9e9e9;
       margin: 0 0.3rem;
       border-radius: 0.3rem;
-      cursor: pointer;
       transition: all 0.2s;
-    }
-    .label:hover {
-      box-shadow: 0 0.1rem 0.3rem #666;
     }
     .label.warriors {
       background: #fdb927;
       color: #1e518c;
+      cursor: pointer;
+    }
+    .warriors:hover {
+      box-shadow: 0 0.1rem 0.3rem #666;
     }
   }
 }
