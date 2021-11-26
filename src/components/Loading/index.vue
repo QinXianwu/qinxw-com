@@ -66,11 +66,13 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
   transition: 0.3s;
 }
 
 .maskShow {
   z-index: 888;
   background-color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
 }
 </style>
