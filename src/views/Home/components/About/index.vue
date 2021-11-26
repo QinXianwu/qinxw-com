@@ -7,7 +7,7 @@
     <div class="container">
       <div class="label_list">
         <div class="label">00后</div>
-        <div class="label warriors">NBA球迷 - Warriors</div>
+        <div class="label warriors" @click="onWarriors">NBA球迷 - Warriors</div>
         <div class="label">理科生</div>
       </div>
       <div class="name">我是{{ name }}。</div>
@@ -35,6 +35,11 @@ export default {
         "自驾游到布达拉宫 拍一张合照",
       ],
     };
+  },
+  methods: {
+    onWarriors() {
+      this.$loading({});
+    },
   },
 };
 </script>
