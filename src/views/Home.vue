@@ -10,7 +10,7 @@
     <Mask
       :showMask="showMenu"
       @onEventClick="
-        showMenu ? $store.commit('page/setShowMenu', !showMenu) : ''
+        if (showMenu) $store.commit('page/setShowMenu', !showMenu);
       "
     />
     <!-- 菜单 -->
@@ -47,9 +47,7 @@ export default {
   name: "Home",
   components: { Mask, Nav, Menu, About, Work },
   data() {
-    return {
-      curTop: 0,
-    };
+    return {};
   },
   async created() {
     let res = await this.$http.muxiaoguo.GetTianQi({
