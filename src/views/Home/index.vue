@@ -7,19 +7,14 @@
       <Nav @navTo="navTo" ref="nav" />
     </div>
     <!-- 遮挡层 -->
-    <Mask
-      :showMask="showMenu"
-      @onEventClick="
-        if (showMenu) $store.commit('page/setShowMenu', !showMenu);
-      "
-    />
+    <Mask :showMask="showMenu" @onEventClick="menuClick" />
     <!-- 菜单 -->
     <Menu @navTo="navTo" />
     <!-- 主内容 -->
     <div id="content" class="column"></div>
     <!-- 向下滚动按钮 -->
     <div id="scrollDown">
-      <span id="scrollDownIcon" @click="navTo(1)"></span>
+      <span id="scrollDownIcon" @click="navTo('about')"></span>
     </div>
   </div>
   <div class="main">
@@ -38,10 +33,10 @@
 import smoothscroll from "smoothscroll-polyfill"; // 解决移动端滚动失效bug
 
 import Mask from "@/components/Mask/index"; // 遮挡层
-import Nav from "@/components/Nav/index"; // 导航条
-import Menu from "@/components/Menu/index"; // 导航条-菜单
-import About from "@/components/About/index"; // 关于
-import Work from "@/components/Work/index"; // 作品
+import Nav from "./components/Nav/index"; // 导航条
+import Menu from "./components/Menu/index"; // 导航条-菜单
+import About from "./components/About/index"; // 关于
+import Work from "./components/Work/index"; // 作品
 
 export default {
   name: "Home",
@@ -59,26 +54,19 @@ export default {
     console.log(res);
   },
   methods: {
-    navTo(cur) {
-      let offsetScrollToList = [
-        { name: "home", scrollTop: 0 },
-        {
-          name: "about",
-          scrollTop: this.$refs.about.getBoundingClientRect().top | 0,
-        },
-        {
-          name: "work",
-          scrollTop: this.$refs.work.getBoundingClientRect().top | 0,
-        },
-      ];
-      let scrollTo =
-        document.documentElement.scrollTop + offsetScrollToList[cur].scrollTop;
+    navTo(name) {
+      let component = null;
+      if (name === "about") component = this.$refs.about;
+      if (name === "work") component = this.$refs.work;
+      if (name === "log") component = this.$refs.log;
+      let scrollTop = component ? component.getBoundingClientRect().top : 0;
+      let scrollTo = document.documentElement.scrollTop + scrollTop;
       window.scrollTo({
-        top: cur === 0 ? 0 : scrollTo,
+        top: name ? scrollTo : 0,
         behavior: "smooth", // 有缓冲-过渡效果
       });
     },
-    // 监听滚动条配合nav显示效果
+    // 监听滚动条配合 导航栏显示效果
     eventScroll() {
       let scrollTop = document.documentElement.scrollTop;
       let isSticky = this.$refs.nav && this.$refs.nav.isSticky;
@@ -89,6 +77,10 @@ export default {
       } else {
         if (isSticky) this.$refs.nav.isSticky = false;
       }
+    },
+    // 遮挡层
+    menuClick() {
+      if (this.showMenu) this.$store.commit("page/setShowMenu", !this.showMenu);
     },
   },
   computed: {
@@ -121,7 +113,7 @@ export default {
   background-repeat: no-repeat; // 背景图像将仅显示一次
   background-size: cover; // 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域
   background-position: center; // 定位背景图像
-  background-image: url(../assets/image/Home_TopBg0.jpg);
+  background-image: url(../../assets/image/Home_TopBg0.jpg);
   transition: transform 1.5s, opacity 1s;
   transform: scale(1.05);
   opacity: 0;

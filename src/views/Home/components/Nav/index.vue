@@ -10,27 +10,20 @@
       </div>
     </div>
     <div class="navLinkBox flex">
-      <div class="navLink column" @click="navTo(0)">
+      <div class="navLink column" @click="navTo()">
         <a>首页</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div class="navLink column" @click="navTo(1)">
+      <div class="navLink column" @click="navTo('about')">
         <a>关于</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div class="navLink column" @click="navTo(2)">
+      <div class="navLink column" @click="navTo('work')">
         <a>作品</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div
-        class="navLink column"
-        id="navLinkSwitchTheme"
-        :title="`${'主题：' + themeTitle}`"
-        @click="onSwitchTheme"
-      >
-        <div class="switchTheme-icon" :class="switchTheme ? 'Light' : 'Dark'">
-          <img :src="switchThemeUrl" alt="" />
-        </div>
+      <div class="navLink column" @click="navTo()">
+        <a>练习册</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
     </div>
@@ -54,14 +47,6 @@ export default {
     };
   },
   methods: {
-    onSwitchTheme() {
-      this.$store.commit("page/setSwitchTheme", !this.switchTheme);
-      this.$store.commit(
-        "page/setThemeTitle",
-        this.switchTheme ? "浅色" : "深色"
-      );
-      this.$store.commit("page/setSwitchThemeUrl");
-    },
     // 调整滚动条
     navTo(cur) {
       this.$emit("navTo", cur);
@@ -70,15 +55,6 @@ export default {
   computed: {
     showMenu() {
       return this.$store.state.page.showMenu;
-    },
-    themeTitle() {
-      return this.$store.state.page.themeTitle;
-    },
-    switchTheme() {
-      return this.$store.state.page.switchTheme;
-    },
-    switchThemeUrl() {
-      return this.$store.state.page.switchThemeUrl;
     },
   },
 };
@@ -178,32 +154,6 @@ export default {
 
 .navLinkBox .navLink:hover .border-bottom {
   width: 1.5rem;
-}
-
-#navLinkSwitchTheme {
-  justify-content: center;
-  align-items: center;
-  .switchTheme-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 0.75rem 0;
-    border-radius: 50%;
-    line-height: 2rem;
-    transition: all 0.3s;
-    img {
-      width: 75%;
-      height: 75%;
-    }
-  }
-  .Light {
-    background: #fff;
-  }
-  .Dark {
-    background-color: #402a2e;
-  }
-}
-#navLinkSwitchTheme:hover .switchTheme-icon {
-  background: none;
 }
 
 .btnMenu {

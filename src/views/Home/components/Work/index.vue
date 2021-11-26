@@ -62,6 +62,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  // flex-wrap 属性规定flex容器是单行或者多行
+  flex-wrap: wrap;
   .p_cell {
     width: 17rem;
     height: 17rem;

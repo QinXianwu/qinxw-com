@@ -21,7 +21,6 @@
 </template>
 <script>
 export default {
-  props: {},
   data: function () {
     return {
       name: "秦贤武",

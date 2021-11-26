@@ -1,4 +1,4 @@
-import Home from "@/views/Home.vue";
+import Home from "@/views/Home/index.vue";
 import _404_ from "@/views/error/404.vue";
 
 const routerList = [
