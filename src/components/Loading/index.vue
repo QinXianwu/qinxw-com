@@ -110,7 +110,7 @@ export default {
   margin: auto;
   position: absolute;
   right: 0;
-  top: 0;
+  top: -2rem;
   width: 100px;
 }
 
