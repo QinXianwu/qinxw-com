@@ -3,9 +3,7 @@
     <div id="topBg" class="loaded"></div>
     <div id="bgDarkMask"></div>
     <!-- 导航栏 -->
-    <div id="nav">
-      <Nav @navTo="navTo" ref="nav" />
-    </div>
+    <Nav @navTo="navTo" ref="nav" />
     <!-- 遮挡层 -->
     <Mask :showMask="showMenu" @onEventClick="menuClick" />
     <!-- 菜单 -->
@@ -31,7 +29,6 @@
 
 <script>
 import smoothscroll from "smoothscroll-polyfill"; // 解决移动端滚动失效bug
-
 import Mask from "@/components/Mask/index"; // 遮挡层
 import Nav from "./components/Nav/index"; // 导航条
 import Menu from "./components/Menu/index"; // 导航条-菜单
@@ -41,9 +38,6 @@ import Work from "./components/Work/index"; // 作品
 export default {
   name: "Home",
   components: { Mask, Nav, Menu, About, Work },
-  data() {
-    return {};
-  },
   async created() {
     let res = await this.$http.muxiaoguo.GetTianQi({
       type: "2",
@@ -99,7 +93,7 @@ export default {
   },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 #topBg.loaded {
   transform: scale(1);
   opacity: 1;
