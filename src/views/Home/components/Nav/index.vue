@@ -28,11 +28,7 @@
       </div>
     </div>
     <!-- 菜单按钮 -->
-    <span
-      class="btnMenu"
-      id="btnMenu1"
-      @click="$store.commit('page/setShowMenu', !showMenu)"
-    ></span>
+    <span class="btnMenu" id="btnMenu1" @click="close"></span>
   </div>
 </template>
 <script>
@@ -51,6 +47,14 @@ export default {
     navTo(cur) {
       this.$emit("navTo", cur);
     },
+    close() {
+      this.$store.commit("page/setShowMenu", !this.showMenu);
+      this.$mask({
+        close: () => {
+          this.$store.commit("page/setShowMenu", !this.showMenu);
+        },
+      });
+    },
   },
   computed: {
     showMenu() {
@@ -64,12 +68,12 @@ export default {
   width: 99%;
   height: 4rem;
   font-size: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   align-items: center;
   color: #fff;
   background: rgba(51, 51, 51, 0.979);
   backdrop-filter: blur(2.1rem) saturate(180%);
-  opacity: 0.9;
+  opacity: 0.98;
   margin: 0 0.5%;
 }
 .nav.sticky {
@@ -95,13 +99,13 @@ export default {
   .logo {
     width: 3rem;
     height: 3rem;
-    border-radius: 1.1rem;
+    border-radius: 0.88rem;
     box-shadow: 0 0 10rem #000;
     transition: 0.3s;
     img {
       width: 100%;
       height: 100%;
-      border-radius: 1.1rem;
+      border-radius: 0.88rem;
     }
   }
   .text {

@@ -4,7 +4,8 @@ import _404_ from "@/views/error/404.vue";
 const routerList = [
   {
     path: "/",
-    name: "Home",
+    name: "index",
+    alias: ["/index", "/home"],
     component: Home,
   },
   {

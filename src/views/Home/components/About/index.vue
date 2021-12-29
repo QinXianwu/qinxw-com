@@ -82,7 +82,7 @@ export default {
       background: #e9e9e9;
       margin: 0 0.3rem;
       border-radius: 0.3rem;
-      transition: all 0.2s;
+      transition: all 0.15s;
     }
     .label.warriors {
       background: #fdb927;

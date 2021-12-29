@@ -1,11 +1,8 @@
 <template>
   <div id="home" ref="home">
     <div id="topBg" class="loaded"></div>
-    <div id="bgDarkMask"></div>
     <!-- 导航栏 -->
     <Nav @navTo="navTo" ref="nav" />
-    <!-- 遮挡层 -->
-    <Mask :showMask="showMenu" @onEventClick="menuClick" />
     <!-- 菜单 -->
     <Menu @navTo="navTo" />
     <!-- 主内容 -->
@@ -29,7 +26,6 @@
 
 <script>
 import smoothscroll from "smoothscroll-polyfill"; // 解决移动端滚动失效bug
-import Mask from "@/components/Mask/index"; // 遮挡层
 import Nav from "./components/Nav/index"; // 导航条
 import Menu from "./components/Menu/index"; // 导航条-菜单
 import About from "./components/About/index"; // 关于
@@ -37,7 +33,7 @@ import Work from "./components/Work/index"; // 作品
 
 export default {
   name: "Home",
-  components: { Mask, Nav, Menu, About, Work },
+  components: { Nav, Menu, About, Work },
   async created() {
     let res = await this.$http.muxiaoguo.GetTianQi({
       type: "2",
@@ -71,15 +67,6 @@ export default {
       } else {
         if (isSticky) this.$refs.nav.isSticky = false;
       }
-    },
-    // 遮挡层
-    menuClick() {
-      if (this.showMenu) this.$store.commit("page/setShowMenu", !this.showMenu);
-    },
-  },
-  computed: {
-    showMenu() {
-      return this.$store.state.page.showMenu;
     },
   },
   mounted() {

@@ -27,13 +27,9 @@
 export default {
   name: "Loading",
   props: {
-    show: { type: Boolean, default: false }, // loading.js传入
+    show: { type: Boolean, default: false },
     success: {
       type: Function, //成功回调
-      default: null,
-    },
-    error: {
-      type: Function, //失败回调
       default: null,
     },
     remove: {
@@ -51,23 +47,19 @@ export default {
     };
   },
   created() {
-    // 产生延误，实现渐入渐出
-    setTimeout(() => {
-      this.showMask = this.show;
-    });
+    this.showMask = this.show;
+    if (this.success) this.success();
   },
   methods: {
     // 点击遮遮挡层响应事件
     onEventClick() {
       if (this.showMask) {
         setTimeout(() => {
-          // 产生延误，实现渐入渐出
+          // 产生延误，实现渐出
           if (this.remove) this.remove();
         }, 300);
       }
-      if (this.error) this.error();
       if (this.close) this.close();
-      if (this.success) this.success();
       this.showMask = !this.showMask;
     },
   },

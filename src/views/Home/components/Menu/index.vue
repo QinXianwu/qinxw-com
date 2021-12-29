@@ -1,11 +1,7 @@
 <template>
   <div id="navMenu" :class="showMenu ? 'showNavMenu' : ''">
     <!-- 菜单按钮 -->
-    <span
-      class="btnMenu"
-      id="btnMenu2"
-      @click="$store.commit('page/setShowMenu', !showMenu)"
-    ></span>
+    <span class="btnMenu" id="btnMenu2" @click="close"></span>
     <a class="navLink" @click="navTo()">首页</a>
     <a class="navLink" @click="navTo('about')">关于</a>
     <a class="navLink" @click="navTo('work')">作品</a>
@@ -28,6 +24,11 @@ export default {
     // 调整滚动条
     navTo(cur) {
       this.$emit("navTo", cur);
+    },
+    close() {
+      console.log("this.$mask", this.$mask);
+      this.$store.commit("page/setShowMenu", !this.showMenu);
+      // this.$mask({ show: false });
     },
   },
 };
