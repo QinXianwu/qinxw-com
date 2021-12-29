@@ -6,12 +6,12 @@ export default function Mask(options) {
   const mountNode = document.createElement("div");
   document.body.appendChild(mountNode);
   const app = createApp(MaskComponent, {
-    show: true,
+    show: false,
     ...options,
-    remove() {
-      app.unmount(mountNode); //创建完后要进行销毁
-      document.body.removeChild(mountNode);
-    },
+    // remove() {
+    //   app.unmount(mountNode); //创建完后要进行销毁
+    //   document.body.removeChild(mountNode);
+    // },
   });
   return app.mount(mountNode);
 }

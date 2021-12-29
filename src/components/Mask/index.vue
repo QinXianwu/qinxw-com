@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="mask"
-    :class="showMask ? 'maskShow' : ''"
-    @click="onEventClick"
-  ></div>
+  <div class="mask maskShow" v-show="showMask" @click="onEventClick"></div>
 </template>
 <script>
 export default {
@@ -34,7 +30,7 @@ export default {
   },
   methods: {
     // 点击遮遮挡层响应事件
-    onEventClick() {
+    async onEventClick() {
       if (this.showMask) {
         setTimeout(() => {
           // 产生延误，实现渐出
@@ -42,6 +38,9 @@ export default {
         }, 300);
       }
       if (this.close) this.close();
+      this.showMask = !this.showMask;
+    },
+    target() {
       this.showMask = !this.showMask;
     },
   },

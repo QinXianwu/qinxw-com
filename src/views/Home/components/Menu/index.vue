@@ -28,7 +28,7 @@ export default {
     close() {
       console.log("this.$mask", this.$mask);
       this.$store.commit("page/setShowMenu", !this.showMenu);
-      // this.$mask({ show: false });
+      this.$mask.onEventClick();
     },
   },
 };

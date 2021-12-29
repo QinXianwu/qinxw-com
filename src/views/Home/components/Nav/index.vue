@@ -49,11 +49,14 @@ export default {
     },
     close() {
       this.$store.commit("page/setShowMenu", !this.showMenu);
-      this.$mask({
-        close: () => {
-          this.$store.commit("page/setShowMenu", !this.showMenu);
-        },
+      this.$mask.onEventClick().then(() => {
+        this.$store.commit("page/setShowMenu", !this.showMenu);
       });
+      // this.$mask({
+      //   close: () => {
+      //     this.$store.commit("page/setShowMenu", !this.showMenu);
+      //   },
+      // });
     },
   },
   computed: {

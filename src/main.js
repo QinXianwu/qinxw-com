@@ -13,7 +13,7 @@ const app = createApp(App);
 // 添加到全局中
 app.config.globalProperties.$http = api;
 app.config.globalProperties.$loading = loading;
-app.config.globalProperties.$mask = mask;
+app.config.globalProperties.$mask = mask();
 
 app.use(store);
 app.use(router);
