@@ -1,5 +1,5 @@
 <template>
-  <div id="_404_">
+  <div class="_404_">
     <div class="fof">
       <h1>Error 404</h1>
     </div>
@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-#_404_ {
+._404_ {
   display: table;
   width: 100%;
   height: 100vh;

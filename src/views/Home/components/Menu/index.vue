@@ -1,7 +1,7 @@
 <template>
-  <div id="navMenu" :class="showMenu ? 'showNavMenu' : ''">
+  <div class="navMenu" :class="showMenu ? 'showNavMenu' : ''">
     <!-- 菜单按钮 -->
-    <span class="btnMenu" id="btnMenu2" @click="closeMenu"></span>
+    <span class="btnMenu btnMenu2" @click="closeMenu"></span>
     <a class="navLink" @click="navTo()">首页</a>
     <a class="navLink" @click="navTo('about')">关于</a>
     <a class="navLink" @click="navTo('work')">作品</a>
@@ -33,7 +33,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-#navMenu {
+.navMenu {
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -86,14 +86,14 @@ export default {
   }
 }
 
-#navMenu.showNavMenu {
+.navMenu.showNavMenu {
   // right: 0;
   // 解决移动端菜单显隐卡顿bug
   transform: translateX(-15rem);
   opacity: 1;
 }
 
-#btnMenu2:hover {
+.btnMenu2:hover {
   border-color: rgba(0, 0, 0, 0.802);
   background-color: rgba(0, 0, 0, 0.802);
   color: rgba(0, 0, 0, 0.802);

@@ -1,26 +1,26 @@
 <template>
-  <div id="home" ref="home">
-    <div id="top_bg" class="loaded"></div>
+  <div class="home" ref="home">
+    <div class="top_bg loaded"></div>
     <!-- 导航栏 -->
     <Nav @navTo="navTo" ref="nav" />
     <!-- 菜单 -->
     <Menu @navTo="navTo" />
     <!-- 主内容 -->
-    <div id="content" class="column"></div>
-    <div id="scroll_down">
+    <div class="content column"></div>
+    <div class="scroll_down">
       <div class="scroll_down_cell">
         <span class="scroll_down_icon" @click="navTo('about')"></span>
       </div>
     </div>
   </div>
   <div class="main">
-    <div id="about" ref="about">
+    <div class="about" ref="about">
       <About />
     </div>
-    <div id="work" ref="work">
+    <div class="work" ref="work">
       <Work />
     </div>
-    <div id="log" ref="log">1111</div>
+    <div class="log" ref="log">1111</div>
     <footer>123</footer>
   </div>
 </template>
@@ -82,12 +82,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-#top_bg.loaded {
+.top_bg.loaded {
   transform: scale(1);
   opacity: 1;
 }
 
-#top_bg {
+.top_bg {
   z-index: -100;
   position: fixed;
   width: 100%;
@@ -101,7 +101,7 @@ export default {
   opacity: 0;
 }
 
-#content {
+.content {
   position: absolute;
   top: 25%;
   width: 100%;
@@ -109,15 +109,15 @@ export default {
   color: #fff;
 }
 
-#scroll_down {
+.scroll_down {
   position: absolute;
   bottom: 6rem;
   width: 100%;
-  .scroll_down_cell {
+  &_cell {
     display: flex;
     justify-content: center;
   }
-  .scroll_down_cell .scroll_down_icon {
+  &_cell .scroll_down_icon {
     position: absolute;
     top: 3rem;
     border-right: 0.2rem solid;
@@ -144,17 +144,17 @@ export default {
   width: 100%;
 }
 
-#about,
-#log {
+.about,
+.log {
   background-color: #fff;
 }
 
-#work {
+.work {
   background-color: rgb(245, 245, 245);
 }
-#about,
-#log,
-#work,
+.about,
+.log,
+.work,
 footer {
   width: 100%;
   padding-top: 5rem;
