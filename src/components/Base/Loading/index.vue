@@ -1,6 +1,6 @@
 <template>
   <!-- 自定义加载组件 -->
-  <div class="mask" :class="showMask ? 'maskShow' : ''" @click="onEventClick">
+  <div class="mask" :class="showMask ? 'maskShow' : ''" @click="eventClick">
     <div class="loader">
       <div class="loader-inner">
         <div class="loader-line-wrap">
@@ -52,13 +52,7 @@ export default {
   },
   methods: {
     // 点击遮遮挡层响应事件
-    onEventClick() {
-      if (this.showMask) {
-        setTimeout(() => {
-          // 产生延误，实现渐出
-          if (this.remove) this.remove();
-        }, 300);
-      }
+    eventClick() {
       if (this.close) this.close();
       this.showMask = !this.showMask;
     },

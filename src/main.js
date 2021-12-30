@@ -1,5 +1,5 @@
-import loading from "@/components/Loading/loading.js";
-import mask from "@/components/Mask/mask.js";
+import loading from "@/components/Base/Loading/loading.js";
+import mask from "@/components/Base/Mask/mask.js";
 
 import { createApp } from "vue";
 import App from "./App.vue";

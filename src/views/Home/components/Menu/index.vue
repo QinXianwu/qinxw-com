@@ -1,7 +1,7 @@
 <template>
   <div id="navMenu" :class="showMenu ? 'showNavMenu' : ''">
     <!-- 菜单按钮 -->
-    <span class="btnMenu" id="btnMenu2" @click="close"></span>
+    <span class="btnMenu" id="btnMenu2" @click="closeMenu"></span>
     <a class="navLink" @click="navTo()">首页</a>
     <a class="navLink" @click="navTo('about')">关于</a>
     <a class="navLink" @click="navTo('work')">作品</a>
@@ -25,10 +25,9 @@ export default {
     navTo(cur) {
       this.$emit("navTo", cur);
     },
-    close() {
-      console.log("this.$mask", this.$mask);
+    closeMenu() {
       this.$store.commit("page/setShowMenu", !this.showMenu);
-      this.$mask.onEventClick();
+      this.$mask.eventClick();
     },
   },
 };
@@ -46,9 +45,9 @@ export default {
   backdrop-filter: blur(2.1rem) saturate(180%);
   box-shadow: rgb(0 0 0 / 10%) 0 0 2.1rem;
   font-size: 0;
-  transition: 0.3s;
   opacity: 0;
   border-radius: 1rem;
+  transition: all 0.5s;
 
   webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);

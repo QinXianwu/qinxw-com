@@ -28,7 +28,7 @@
       </div>
     </div>
     <!-- 菜单按钮 -->
-    <span class="btnMenu" id="btnMenu1" @click="close"></span>
+    <span class="btnMenu" id="btnMenu1" @click="openMenu"></span>
   </div>
 </template>
 <script>
@@ -47,16 +47,10 @@ export default {
     navTo(cur) {
       this.$emit("navTo", cur);
     },
-    close() {
+    openMenu() {
+      console.log("this.$mask", this.$mask);
       this.$store.commit("page/setShowMenu", !this.showMenu);
-      this.$mask.onEventClick().then(() => {
-        this.$store.commit("page/setShowMenu", !this.showMenu);
-      });
-      // this.$mask({
-      //   close: () => {
-      //     this.$store.commit("page/setShowMenu", !this.showMenu);
-      //   },
-      // });
+      this.$mask.target();
     },
   },
   computed: {

@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import MaskComponent from "@/components/Mask/index.vue";
+import MaskComponent from "./index.vue";
 
 export default function Mask(options) {
   // 创建一个节点，并将组件挂载上去

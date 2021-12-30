@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import LoadingComponent from "@/components/Loading/index.vue";
+import LoadingComponent from "./index.vue";
 
 export default function Loading(options) {
   // 创建一个节点，并将组件挂载上去
