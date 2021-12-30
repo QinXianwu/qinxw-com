@@ -69,13 +69,13 @@ export default {
   font-size: 1rem;
   line-height: 1rem;
   color: #666;
-  transition: all 0.3s;
+  transition: all 0.5s;
 
   .label_list {
     display: flex;
     justify-content: center;
     margin: 1rem 0 3rem;
-    transition: all 0.3s;
+    transition: all 0.5s;
     .label {
       padding: 1rem 1.5rem;
       font-weight: bold;

@@ -92,13 +92,13 @@ export default {
 .nav .navLogoBox {
   position: absolute;
   left: 13rem;
-  transition: 0.3s;
+  transition: 0.5s;
   .logo {
     width: 3rem;
     height: 3rem;
     border-radius: 0.88rem;
     box-shadow: 0 0 10rem #000;
-    transition: 0.3s;
+    transition: 0.5s;
     img {
       width: 100%;
       height: 100%;
@@ -116,7 +116,7 @@ export default {
 .navLinkBox {
   position: absolute;
   right: 10rem;
-  transition: all 0.3s;
+  transition: all 0.5s;
   .navLink {
     width: 4rem;
     height: 2.8rem;
@@ -125,7 +125,7 @@ export default {
     margin: 0 1.7rem;
     text-align: center;
     border-radius: 0.4rem;
-    transition: all 0.3s;
+    transition: all 0.5s;
     &:hover {
       background: rgba(160, 160, 160, 0.299);
       cursor: pointer; // 鼠标变小手
@@ -146,7 +146,7 @@ export default {
     border-top: 0.3rem solid #03d300;
     position: relative;
     top: -0.3rem;
-    transition: all 0.3s;
+    transition: all 0.5s;
     &:active {
       content: "";
     }
@@ -170,7 +170,7 @@ export default {
   border-bottom: 0.15rem solid;
   box-sizing: unset;
   background-clip: content-box;
-  transition: 0.3s;
+  transition: 0.5s;
   cursor: pointer;
   display: none;
 }

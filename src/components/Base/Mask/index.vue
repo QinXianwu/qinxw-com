@@ -49,7 +49,7 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .maskShow {

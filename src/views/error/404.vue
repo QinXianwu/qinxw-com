@@ -38,7 +38,7 @@ export default {
   display: inline-block;
   padding-right: 1rem;
   line-height: 4rem;
-  transition: all 0.3s;
+  transition: all 0.5s;
   animation: type 0.5s alternate infinite;
 }
 

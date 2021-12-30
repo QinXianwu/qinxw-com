@@ -67,7 +67,7 @@ export default {
     z-index: 1000;
     position: relative;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.5s;
     &:hover {
       background: rgba(0, 0, 0, 0.095);
     }
@@ -117,6 +117,6 @@ export default {
   background-clip: content-box;
   cursor: pointer;
   display: block;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 </style>

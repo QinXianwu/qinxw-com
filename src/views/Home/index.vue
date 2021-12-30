@@ -156,6 +156,6 @@ footer {
   padding-top: 5rem;
   padding-bottom: 2rem;
   text-align: center;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 </style>
