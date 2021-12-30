@@ -85,12 +85,10 @@ export default {
       transition: all 0.15s;
     }
     .label.warriors {
-      background: #fdb927;
       color: #1e518c;
       cursor: pointer;
-    }
-    .warriors:hover {
-      box-shadow: 0 0.1rem 0.3rem #666;
+      background: #fdb927;
+      box-shadow: 5px 5px 0px #b1821b, -5px -5px 0px #fff133;
     }
   }
 }
