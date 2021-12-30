@@ -53,6 +53,7 @@ export default {
   methods: {
     // 点击遮遮挡层响应事件
     eventClick() {
+      if (!this.showMask) return;
       if (this.close) this.close();
       this.showMask = !this.showMask;
     },
