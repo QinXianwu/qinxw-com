@@ -32,7 +32,7 @@
   </div>
 </template>
 <script>
-import logoUrl from "@/assets/image/logo.jpg";
+import logoUrl from "./image/logo.png";
 export default {
   name: "",
   props: {},

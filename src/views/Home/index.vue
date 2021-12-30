@@ -7,7 +7,6 @@
     <Menu @navTo="navTo" />
     <!-- 主内容 -->
     <div id="content" class="column"></div>
-    <!-- 向下滚动按钮 -->
     <div id="scroll_down">
       <div class="scroll_down_cell">
         <span class="scroll_down_icon" @click="navTo('about')"></span>
@@ -96,7 +95,7 @@ export default {
   background-repeat: no-repeat; // 背景图像将仅显示一次
   background-size: cover; // 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域
   background-position: center; // 定位背景图像
-  background-image: url(../../assets/image/Home_TopBg0.jpg);
+  background-image: url(./image/Home_TopBg0.jpg);
   transition: transform 1.5s, opacity 1s;
   transform: scale(1.05);
   opacity: 0;

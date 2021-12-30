@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import MeetFood from "@/assets/image/MeetFood-logo.png";
+import MeetFood from "./image/MeetFood-logo.png";
 export default {
   data: function () {
     return {
