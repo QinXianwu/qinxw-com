@@ -1,6 +1,6 @@
 <template>
   <div id="home" ref="home">
-    <div id="topBg" class="loaded"></div>
+    <div id="top_bg" class="loaded"></div>
     <!-- 导航栏 -->
     <Nav @navTo="navTo" ref="nav" />
     <!-- 菜单 -->
@@ -8,8 +8,10 @@
     <!-- 主内容 -->
     <div id="content" class="column"></div>
     <!-- 向下滚动按钮 -->
-    <div id="scrollDown">
-      <span id="scrollDownIcon" @click="navTo('about')"></span>
+    <div id="scroll_down">
+      <div class="scroll_down_cell">
+        <span class="scroll_down_icon" @click="navTo('about')"></span>
+      </div>
     </div>
   </div>
   <div class="main">
@@ -81,12 +83,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-#topBg.loaded {
+#top_bg.loaded {
   transform: scale(1);
   opacity: 1;
 }
 
-#topBg {
+#top_bg {
   z-index: -100;
   position: fixed;
   width: 100%;
@@ -108,14 +110,17 @@ export default {
   color: #fff;
 }
 
-#scrollDown {
+#scroll_down {
   position: absolute;
   bottom: 6rem;
   width: 100%;
-  #scrollDownIcon {
+  .scroll_down_cell {
+    display: flex;
+    justify-content: center;
+  }
+  .scroll_down_cell .scroll_down_icon {
     position: absolute;
     top: 3rem;
-    left: 48%;
     border-right: 0.2rem solid;
     border-top: 0.2rem solid;
     border-color: rgba(255, 255, 255, 0.5);
