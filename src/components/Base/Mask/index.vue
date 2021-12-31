@@ -14,14 +14,11 @@ export default {
       type: Function, //传入移除节点方法,这里是createApp中的方法
       default: null,
     },
-    close: {
-      type: Function, //关闭回调
-      default: null,
-    },
   },
   data() {
     return {
       showMask: false,
+      close: null,
     };
   },
   created() {
@@ -29,14 +26,18 @@ export default {
     if (this.success) this.success();
   },
   methods: {
-    // 点击遮遮挡层响应事件
-    async eventClick() {
+    // 点击遮挡层响应事件
+    eventClick() {
       if (!this.showMask) return;
-      if (this.close) this.close();
+      if (this.close && typeof this.close === "function") {
+        this.close();
+        this.close = null; // 清空关闭回调函数 弊处 只能开一层遮罩
+      }
       this.showMask = !this.showMask;
     },
-    target() {
+    target({ close }) {
       this.showMask = !this.showMask;
+      if (close && typeof close === "function") this.close = close; // 开启时存入关闭回调的函数
     },
   },
 };

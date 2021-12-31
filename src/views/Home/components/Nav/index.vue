@@ -50,7 +50,11 @@ export default {
     openMenu() {
       console.log("this.$mask", this.$mask);
       this.$store.commit("page/setShowMenu", !this.showMenu);
-      this.$mask.target();
+      this.$mask.target({
+        close: () => {
+          this.$store.commit("page/setShowMenu", false);
+        },
+      });
     },
   },
   computed: {

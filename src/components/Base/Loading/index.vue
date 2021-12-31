@@ -57,6 +57,9 @@ export default {
       if (this.close) this.close();
       this.showMask = !this.showMask;
     },
+    target() {
+      this.showMask = !this.showMask;
+    },
   },
 };
 </script>
