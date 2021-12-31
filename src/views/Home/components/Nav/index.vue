@@ -48,7 +48,6 @@ export default {
       this.$emit("navTo", cur);
     },
     openMenu() {
-      console.log("this.$mask", this.$mask);
       this.$store.commit("page/setShowMenu", !this.showMenu);
       this.$mask.target({
         close: () => {

@@ -20,6 +20,15 @@ export default {
       return this.$store.state.page.showMenu;
     },
   },
+  mounted() {
+    window.addEventListener("resize", () => {
+      return (() => {
+        if (this.showMenu && document.body.clientWidth > 760) {
+          this.closeMenu();
+        }
+      })();
+    });
+  },
   methods: {
     // 调整滚动条
     navTo(cur) {
