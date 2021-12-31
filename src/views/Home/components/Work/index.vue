@@ -9,7 +9,7 @@
         <template v-if="portfolio">
           <div class="p_cell" v-for="(item, index) in portfolio" :key="index">
             <div class="logo">
-              <img :src="item.logo_url" :title="item.title" />
+              <img :src="item.url" :title="item.title" />
             </div>
           </div>
         </template>
@@ -18,7 +18,6 @@
   </div>
 </template>
 <script>
-import MeetFood from "./image/MeetFood-logo.png";
 export default {
   name: "Work",
   data: function () {
@@ -26,10 +25,12 @@ export default {
       portfolio: [
         {
           title: "遇见食途小程序",
-          logo_url: MeetFood,
+          url: require("./image/MeetFood-logo.png"),
           description: "描述",
         },
-        {},
+        {
+          url: require("./image/Avatar-logo.png"),
+        },
         {},
       ],
     };

@@ -2,7 +2,7 @@
   <div class="nav flex" :class="isSticky ? 'sticky' : ''">
     <div class="navLogoBox flex">
       <div class="logo">
-        <img :src="logoUrl" alt="" />
+        <img :src="require('./image/logo.png')" alt="" />
       </div>
       <div class="text column">
         <span>Qin</span>
@@ -32,13 +32,11 @@
   </div>
 </template>
 <script>
-import logoUrl from "./image/logo.png";
 export default {
   name: "Nav",
   props: {},
   data: function () {
     return {
-      logoUrl,
       isSticky: false,
     };
   },
