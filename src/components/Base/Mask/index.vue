@@ -1,4 +1,5 @@
 <template>
+  <!-- 自定义遮罩组件 -->
   <div class="mask" :class="{ maskShow: showMask }" @click="eventClick"></div>
 </template>
 <script>
@@ -26,6 +27,13 @@ export default {
     if (this.success) this.success();
   },
   methods: {
+    target({ close }) {
+      this.showMask = !this.showMask;
+      if (close && typeof close === "function") this.close = close; // 开启时存入关闭回调的函数
+    },
+    hiedMask() {
+      this.eventClick();
+    },
     // 点击遮挡层响应事件
     eventClick() {
       if (!this.showMask) return;
@@ -34,13 +42,6 @@ export default {
         this.close = null; // 清空关闭回调函数 弊处 只能开一层遮罩
       }
       this.showMask = !this.showMask;
-    },
-    target({ close }) {
-      this.showMask = !this.showMask;
-      if (close && typeof close === "function") this.close = close; // 开启时存入关闭回调的函数
-    },
-    hiedMask() {
-      this.eventClick();
     },
   },
 };

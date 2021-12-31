@@ -1,6 +1,6 @@
 <template>
   <!-- 自定义加载组件 -->
-  <div class="mask" :class="showMask ? 'maskShow' : ''" @click="eventClick">
+  <div class="mask" :class="{ maskShow: showLoading }" @click="eventClick">
     <div class="loader">
       <div class="loader-inner">
         <div class="loader-line-wrap">
@@ -36,29 +36,36 @@ export default {
       type: Function, //传入移除节点方法,这里是createApp中的方法
       default: null,
     },
-    close: {
-      type: Function, //关闭回调
-      default: null,
-    },
   },
   data() {
     return {
-      showMask: false,
+      close: null,
+      showLoading: false,
     };
   },
   created() {
-    this.showMask = this.show;
+    this.showLoading = this.show;
     if (this.success) this.success();
   },
   methods: {
-    // 点击遮遮挡层响应事件
-    eventClick() {
-      if (!this.showMask) return;
-      if (this.close) this.close();
-      this.showMask = !this.showMask;
+    target({ duration = 3000, close }) {
+      this.showLoading = !this.showLoading;
+      if (close && typeof close === "function") this.close = close;
+      setTimeout(() => {
+        this.hiedLoading();
+      }, duration);
     },
-    target() {
-      this.showMask = !this.showMask;
+    hiedLoading() {
+      this.eventClick();
+    },
+    // 点击遮挡层响应事件
+    eventClick() {
+      if (!this.showLoading) return;
+      if (this.close && typeof this.close === "function") {
+        this.close();
+        this.close = null; // 清空关闭回调函数
+      }
+      this.showLoading = !this.showLoading;
     },
   },
 };

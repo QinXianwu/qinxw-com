@@ -6,7 +6,7 @@ export default function Loading(options) {
   const mountNode = document.createElement("div");
   document.body.appendChild(mountNode);
   const app = createApp(LoadingComponent, {
-    show: true,
+    show: false,
     ...options,
     remove() {
       app.unmount(mountNode); //创建完后要进行销毁

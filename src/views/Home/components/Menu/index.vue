@@ -23,9 +23,7 @@ export default {
   mounted() {
     window.addEventListener("resize", () => {
       return (() => {
-        if (this.showMenu && document.body.clientWidth > 760) {
-          this.closeMenu();
-        }
+        if (this.showMenu && document.body.clientWidth > 760) this.closeMenu();
       })();
     });
   },

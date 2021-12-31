@@ -20,6 +20,7 @@
 <script>
 import MeetFood from "./image/MeetFood-logo.png";
 export default {
+  name: "Work",
   data: function () {
     return {
       portfolio: [

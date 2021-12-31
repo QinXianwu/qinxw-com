@@ -21,6 +21,7 @@
 </template>
 <script>
 export default {
+  name: "About",
   data: function () {
     return {
       name: "秦贤武",
@@ -38,7 +39,7 @@ export default {
   },
   methods: {
     onWarriors() {
-      this.$loading({});
+      this.$loading.target({});
     },
   },
 };

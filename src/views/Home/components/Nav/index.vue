@@ -34,7 +34,7 @@
 <script>
 import logoUrl from "./image/logo.png";
 export default {
-  name: "",
+  name: "Nav",
   props: {},
   data: function () {
     return {
