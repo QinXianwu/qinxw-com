@@ -6,7 +6,12 @@
     <!-- 菜单 -->
     <Menu @navTo="navTo" />
     <!-- 主内容 -->
-    <div class="content column"></div>
+    <div class="content column">
+      <div class="music">
+        <!-- 播放器 -->
+        <!-- <MusicPlayer /> -->
+      </div>
+    </div>
     <div class="scroll_down">
       <div class="scroll_down_cell">
         <span class="scroll_down_icon" @click="navTo('about')"></span>
@@ -31,10 +36,11 @@ import Nav from "./components/Nav/index"; // 导航条
 import Menu from "./components/Menu/index"; // 导航条-菜单
 import About from "./components/About/index"; // 关于
 import Work from "./components/Work/index"; // 作品
+import MusicPlayer from "./components/MusicPlayer/index"; // 播放器
 
 export default {
   name: "Home",
-  components: { Nav, Menu, About, Work },
+  components: { Nav, Menu, About, Work, MusicPlayer },
   async created() {
     let res = await this.$http.muxiaoguo.GetTianQi({
       type: "2",
