@@ -70,8 +70,8 @@ export default {
   font-size: 2rem;
   border-radius: 0.8rem;
   align-items: center;
-  color: #fff;
-  background: rgba(51, 51, 51, 0.979);
+  color: @--txt-b-pure;
+  background: @--bg-w-50;
   backdrop-filter: blur(2.1rem) saturate(180%);
   opacity: 0.98;
   margin: 0 0.5%;
@@ -80,17 +80,17 @@ export default {
 .nav.sticky {
   z-index: 99;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.693);
-  box-shadow: 0rem 0.5rem 1.6rem #36363621;
-  color: #333;
+  background-color: @--b-alpha-70;
+  box-shadow: 0rem 0.5rem 1.6rem @--w-alpha-15;
+  color: @main-font-color;
 
   .navLinkBox .navLink a {
-    color: #333;
+    color: @main-font-color;
   }
 
   .btnMenu {
-    border-color: #333;
-    background-color: #333;
+    border-color: @main-font-color;
+    background-color: @main-font-color;
   }
 }
 .nav .navLogoBox {
@@ -101,7 +101,7 @@ export default {
     width: 3rem;
     height: 3rem;
     border-radius: 0.88rem;
-    box-shadow: 0 0 10rem #000;
+    box-shadow: 0 0 10rem @--txt-w-pure;
     transition: 0.5s;
     img {
       width: 100%;
@@ -136,7 +136,7 @@ export default {
     }
     a {
       text-decoration: none;
-      color: #fff;
+      color: @--txt-b-pure;
       margin: 0 0.3rem;
     }
   }
@@ -164,8 +164,8 @@ export default {
 .btnMenu {
   position: absolute;
   z-index: 999;
-  border-color: #fff;
-  background-color: #fff;
+  border-color: @--txt-b-pure;
+  background-color: @--txt-b-pure;
   right: 2rem;
   width: 1.6rem;
   height: 0.1rem;

@@ -23,7 +23,7 @@ export default {
   font-family: "Lato", sans-serif;
   color: #888;
   margin: 0;
-  background: #fff;
+  background: @--txt-b-pure;
 }
 
 .fof {

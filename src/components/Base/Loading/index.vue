@@ -86,13 +86,11 @@ export default {
 
 .maskShow {
   z-index: 888;
-  background-color: rgba(0, 0, 0, 0.479);
+  background-color: @--w-alpha-50;
   opacity: 1;
 }
 
 .loader {
-  // background: #000;
-  // background: radial-gradient(#222, #000);
   bottom: 0;
   left: 0;
   overflow: hidden;

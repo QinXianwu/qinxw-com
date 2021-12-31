@@ -49,12 +49,12 @@ export default {
   .title {
     font-size: 1.75rem;
     line-height: 1.75rem;
-    color: #282828;
+    color: @main-font-color;
   }
   .underscore {
     width: 4rem;
     height: 0.2rem;
-    background: rgba(102, 102, 102, 0.644);
+    background: @--border-color-text;
     margin: 1rem 0;
   }
 }
@@ -70,7 +70,7 @@ export default {
     height: 17rem;
     padding: 1rem;
     margin: 1rem;
-    background: #fff;
+    background: @--txt-b-pure;
     box-shadow: 0 0.1rem 0.3rem #999;
     transition: all 0.5s;
   }
@@ -81,8 +81,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    box-shadow: inset 5px 5px 16px #dbdbdb, inset -5px -5px 16px #ffffff;
+    background: @--txt-b-pure;
+    box-shadow: inset 5px 5px 16px #dbdbdb, inset -5px -5px 16px @--txt-b-pure;
     transition: all 0.5s;
 
     img {

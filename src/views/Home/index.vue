@@ -106,7 +106,7 @@ export default {
   top: 25%;
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: @--txt-b-pure;
 }
 
 .scroll_down {
@@ -122,7 +122,7 @@ export default {
     top: 3rem;
     border-right: 0.2rem solid;
     border-top: 0.2rem solid;
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: @--txt-b-tip;
     border-radius: 0.1rem;
     box-sizing: unset;
     height: 1.3rem;
@@ -133,7 +133,7 @@ export default {
     transition: 0.25s;
     animation: twinkle 2s 2s;
     &:hover {
-      border-color: rgba(255, 255, 255, 1);
+      border-color: @--txt-b-pure;
     }
   }
 }
@@ -146,11 +146,11 @@ export default {
 
 .about,
 .log {
-  background-color: #fff;
+  background-color: @--txt-b-pure;
 }
 
 .work {
-  background-color: rgb(245, 245, 245);
+  background-color: @--color-primary;
 }
 .about,
 .log,

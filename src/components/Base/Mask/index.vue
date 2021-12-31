@@ -60,7 +60,7 @@ export default {
 
 .maskShow {
   z-index: 888;
-  background-color: rgba(0, 0, 0, 0.479);
+  background-color: @--w-alpha-50;
   opacity: 1;
 }
 </style>

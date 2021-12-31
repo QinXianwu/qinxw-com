@@ -73,7 +73,7 @@ export default {
 <style lang="less" scoped>
 .about {
   min-height: 35rem;
-  background-color: #fff;
+  background-color: @--txt-b-pure;
 }
 .head {
   display: flex;
@@ -83,19 +83,19 @@ export default {
   .title {
     font-size: 1.75rem;
     line-height: 1.75rem;
-    color: #282828;
+    color: @main-font-color;
   }
   .underscore {
     width: 4rem;
     height: 0.2rem;
-    background: rgba(102, 102, 102, 0.644);
+    background: @--border-color-text;
     margin: 1rem 0;
   }
 }
 .container {
   font-size: 1rem;
   line-height: 1rem;
-  color: #666;
+  color: @sub-font-color;
   transition: all 0.5s;
 
   .label_list {
@@ -112,9 +112,9 @@ export default {
       transition: all 0.15s;
     }
     .label.warriors {
-      color: #1e518c;
+      color: @--color-subtopic;
       cursor: pointer;
-      background: #fdb927;
+      background: @--color-warning;
       box-shadow: 5px 5px 0px #b1821b, -5px -5px 0px #fff133;
       transition: all 0.3s;
     }

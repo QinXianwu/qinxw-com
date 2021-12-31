@@ -48,7 +48,7 @@ export default {
   width: 15rem;
   height: 100%;
   padding: 5rem 0.6rem;
-  background-color: rgba(255, 255, 255, 0.693);
+  background-color: @--b-alpha-70;
   backdrop-filter: blur(2.1rem) saturate(180%);
   box-shadow: rgb(0 0 0 / 10%) 0 0 2.1rem;
   font-size: 0;
@@ -66,7 +66,7 @@ export default {
     display: block;
     padding: 1rem 30px;
     border-radius: 5px;
-    color: rgba(29, 29, 29, 0.8);
+    color: @--w-alpha-80;
     font-size: 0.9rem;
     text-decoration: none;
     height: 1rem;
@@ -76,11 +76,11 @@ export default {
     cursor: pointer;
     transition: 0.5s;
     &:hover {
-      background: rgba(0, 0, 0, 0.095);
+      background: @--w-alpha-15;
     }
     span {
       float: right;
-      color: rgba(0, 0, 0, 0.5);
+      color: @--w-alpha-50;
       transition: 0.25s;
     }
   }
@@ -89,7 +89,7 @@ export default {
     width: calc(100% - 4rem);
     height: 0.05rem;
     margin: 0.1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: @--w-alpha-10;
   }
 }
 
@@ -101,17 +101,17 @@ export default {
 }
 
 .btnMenu2:hover {
-  border-color: rgba(0, 0, 0, 0.802);
-  background-color: rgba(0, 0, 0, 0.802);
-  color: rgba(0, 0, 0, 0.802);
+  border-color: @--w-alpha-90;
+  background-color: @--w-alpha-90;
+  color: @--w-alpha-90;
 }
 
 .btnMenu {
   position: absolute;
   z-index: 999;
-  border-color: rgba(0, 0, 0, 0.6);
-  background-color: rgba(0, 0, 0, 0.6);
-  color: rgba(0, 0, 0, 0.6);
+  border-color: @--w-alpha-60;
+  background-color: @--w-alpha-60;
+  color: @--w-alpha-60;
   top: 1rem;
   right: 2rem;
   width: 1.6rem;
