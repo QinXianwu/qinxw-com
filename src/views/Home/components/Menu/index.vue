@@ -27,7 +27,7 @@ export default {
     },
     closeMenu() {
       this.$store.commit("page/setShowMenu", !this.showMenu);
-      this.$mask.eventClick();
+      this.$mask.hiedMask();
     },
   },
 };

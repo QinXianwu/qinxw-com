@@ -39,6 +39,9 @@ export default {
       this.showMask = !this.showMask;
       if (close && typeof close === "function") this.close = close; // 开启时存入关闭回调的函数
     },
+    hiedMask() {
+      this.eventClick();
+    },
   },
 };
 </script>
