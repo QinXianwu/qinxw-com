@@ -75,6 +75,7 @@ export default {
   backdrop-filter: blur(2.1rem) saturate(180%);
   opacity: 0.98;
   margin: 0 0.5%;
+  transition: all 0.3s;
 }
 .nav.sticky {
   z-index: 99;
