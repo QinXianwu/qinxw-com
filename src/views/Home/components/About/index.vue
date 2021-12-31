@@ -6,9 +6,15 @@
     </div>
     <div class="container">
       <div class="label_list">
-        <div class="label">00后</div>
-        <div class="label warriors" @click="onWarriors">NBA球迷 - Warriors</div>
-        <div class="label">理科生</div>
+        <div
+          class="label"
+          :class="item.key"
+          v-for="(item, index) in labelList"
+          :key="index"
+          @click="clickLabel(index)"
+        >
+          {{ item.value }}
+        </div>
       </div>
       <div class="name">我是{{ name }}。</div>
       <div class="describe">
@@ -24,12 +30,29 @@ export default {
   name: "About",
   data: function () {
     return {
-      name: "秦贤武",
+      name: "小秦",
+      labelList: [
+        {
+          value: "00后",
+          key: "age",
+          path: "",
+        },
+        {
+          value: "NBA小破勇 - Warriors",
+          key: "warriors",
+          path: "",
+        },
+        {
+          value: "理科生",
+          key: "student_type",
+          path: "",
+        },
+      ],
       describe: [
         "是一名平平无奇的前端程序员，更是生活的稻草人",
         "某知名视频站的不知名up主",
         "强迫症、起床困难户",
-        "怀念小时候的魂斗罗、超级玛丽的游戏控",
+        "怀念小时候魂斗罗、超级玛丽的游戏控",
         "热衷计算机有关的一切：",
         "编程、黑客、UI设计、剪辑、游戏特效...",
         "白人梦想：",
@@ -38,8 +61,11 @@ export default {
     };
   },
   methods: {
-    onWarriors() {
+    clickLabel(index) {
       this.$loading.target({});
+      if (this.labelList[index].path) {
+        //
+      }
     },
   },
 };
@@ -90,6 +116,10 @@ export default {
       cursor: pointer;
       background: #fdb927;
       box-shadow: 5px 5px 0px #b1821b, -5px -5px 0px #fff133;
+      transition: all 0.3s;
+    }
+    .label.warriors:active {
+      transform: scale(0.98);
     }
   }
 }

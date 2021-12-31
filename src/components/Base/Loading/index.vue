@@ -48,12 +48,14 @@ export default {
     if (this.success) this.success();
   },
   methods: {
-    target({ duration = 3000, close }) {
+    target({ duration, close }) {
       this.showLoading = !this.showLoading;
       if (close && typeof close === "function") this.close = close;
-      setTimeout(() => {
-        this.hiedLoading();
-      }, duration);
+      if (duration && typeof duration === "number") {
+        setTimeout(() => {
+          this.hiedLoading();
+        }, duration);
+      }
     },
     hiedLoading() {
       this.eventClick();
