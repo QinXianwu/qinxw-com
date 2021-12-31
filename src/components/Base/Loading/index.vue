@@ -1,6 +1,6 @@
 <template>
   <!-- 自定义加载组件 -->
-  <div class="mask" :class="{ maskShow: showLoading }" @click="eventClick">
+  <div class="mask" :class="{ maskShow: showLoading }">
     <div class="loader">
       <div class="loader-inner">
         <div class="loader-line-wrap">
