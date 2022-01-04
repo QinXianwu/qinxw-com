@@ -14,6 +14,7 @@
         <div class="player" v-else>
           <div class="player_main">
             <CloseButton @close="showPlayer = !showPlayer" />
+            <Player />
           </div>
         </div>
       </transition>
@@ -22,10 +23,13 @@
 </template>
 <script>
 import CloseButton from "@/components/Base/CloseButton";
+import Player from "./Player";
+
 export default {
   name: "MusicPlayer",
   components: {
     CloseButton,
+    Player,
   },
   data: function () {
     return {
