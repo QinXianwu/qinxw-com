@@ -6,11 +6,9 @@
     <!-- 菜单 -->
     <Menu @navTo="navTo" />
     <!-- 主内容 -->
-    <div class="content column">
-      <div class="music">
-        <!-- 播放器 -->
-        <!-- <MusicPlayer /> -->
-      </div>
+    <div class="content">
+      <!-- 播放器 -->
+      <MusicPlayer />
     </div>
     <div class="scroll_down">
       <div class="scroll_down_cell">
@@ -19,13 +17,15 @@
     </div>
   </div>
   <div class="main">
-    <div class="about" ref="about">
+    <div ref="about">
       <About />
     </div>
-    <div class="work" ref="work">
+    <div ref="work">
       <Work />
     </div>
-    <div class="log" ref="log">1111</div>
+    <div ref="log">
+      <Log />
+    </div>
     <footer>123</footer>
   </div>
 </template>
@@ -36,11 +36,12 @@ import Nav from "./components/Nav/index"; // 导航条
 import Menu from "./components/Menu/index"; // 导航条-菜单
 import About from "./components/About/index"; // 关于
 import Work from "./components/Work/index"; // 作品
+import Log from "./components/Log/index"; // 日志
 import MusicPlayer from "./components/MusicPlayer/index"; // 播放器
 
 export default {
   name: "Home",
-  components: { Nav, Menu, About, Work, MusicPlayer },
+  components: { Nav, Menu, About, Work, Log, MusicPlayer },
   async created() {
     let res = await this.$http.muxiaoguo.GetTianQi({
       type: "2",
@@ -70,9 +71,9 @@ export default {
       let about_scrollTop =
         (this.$refs.about && this.$refs.about.getBoundingClientRect().top) || 0;
       if (scrollTop > scrollTop + about_scrollTop - 84) {
-        if (!isSticky) this.$refs.nav.isSticky = true;
+        if (!isSticky) this.$refs.nav.isSticky = !isSticky;
       } else {
-        if (isSticky) this.$refs.nav.isSticky = false;
+        if (isSticky) this.$refs.nav.isSticky = !isSticky;
       }
     },
   },
@@ -149,23 +150,9 @@ export default {
   top: 100%;
   width: 100%;
 }
-
-.about,
-.log {
-  background-color: @--txt-b-pure;
-}
-
-.work {
-  background-color: @--color-primary;
-}
-.about,
-.log,
-.work,
 footer {
-  width: 100%;
   padding-top: 5rem;
   padding-bottom: 2rem;
   text-align: center;
-  transition: 0.5s;
 }
 </style>

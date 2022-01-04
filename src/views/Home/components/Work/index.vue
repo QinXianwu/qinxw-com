@@ -40,7 +40,10 @@ export default {
 <style lang="less" scoped>
 .work {
   min-height: 30rem;
-  background-color: rgb(245, 245, 245);
+  background-color: @--color-primary;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  text-align: center;
 }
 .head {
   display: flex;

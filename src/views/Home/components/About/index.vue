@@ -55,7 +55,7 @@ export default {
         "怀念小时候魂斗罗、超级玛丽的游戏控",
         "热衷计算机有关的一切：",
         "编程、黑客、UI设计、剪辑、游戏特效...",
-        "白人梦想：",
+        "白日梦想：",
         "去看一场勇士队的现场比赛",
       ],
     };
@@ -74,6 +74,9 @@ export default {
 .about {
   min-height: 35rem;
   background-color: @--txt-b-pure;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  text-align: center;
 }
 .head {
   display: flex;

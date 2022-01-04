@@ -30,13 +30,4 @@ export default {
   },
 };
 </script>
-<style lang="less">
-.flex {
-  display: flex;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-}
-</style>
+<style lang="less"></style>

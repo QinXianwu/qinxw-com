@@ -1,28 +1,28 @@
 <template>
-  <div class="nav flex" :class="isSticky ? 'sticky' : ''">
-    <div class="navLogoBox flex">
+  <div class="nav" :class="isSticky ? 'sticky' : ''">
+    <div class="navLogoBox">
       <div class="logo">
         <img :src="require('./image/logo.png')" alt="" />
       </div>
-      <div class="text column">
+      <div class="text">
         <span>Qin</span>
         <span>Xianwu</span>
       </div>
     </div>
-    <div class="navLinkBox flex">
-      <div class="navLink column" @click="navTo()">
+    <div class="navLinkBox">
+      <div class="navLink" @click="navTo()">
         <a>首页</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div class="navLink column" @click="navTo('about')">
+      <div class="navLink" @click="navTo('about')">
         <a>关于</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div class="navLink column" @click="navTo('work')">
+      <div class="navLink" @click="navTo('work')">
         <a>作品</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
-      <div class="navLink column" @click="navTo()">
+      <div class="navLink" @click="navTo()">
         <a>练习册</a>
         <div class="navLink-border"><div class="border-bottom"></div></div>
       </div>
@@ -63,6 +63,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .nav {
+  display: flex;
   width: 99%;
   height: 4rem;
   font-size: 2rem;
@@ -92,6 +93,7 @@ export default {
   }
 }
 .nav .navLogoBox {
+  display: flex;
   position: absolute;
   left: 13rem;
   transition: 0.5s;
@@ -108,6 +110,8 @@ export default {
     }
   }
   .text {
+    display: flex;
+    flex-direction: column;
     font-size: 1.5rem;
     line-height: 1.5rem;
     margin: 0 1rem;
@@ -116,10 +120,13 @@ export default {
 }
 
 .navLinkBox {
+  display: flex;
   position: absolute;
   right: 10rem;
   transition: all 0.5s;
   .navLink {
+    display: flex;
+    flex-direction: column;
     width: 4rem;
     height: 2.8rem;
     line-height: 2.8rem;
