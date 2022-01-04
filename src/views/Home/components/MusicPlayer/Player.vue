@@ -1,6 +1,8 @@
 <!-- 播放器 -->
 <template>
-  <div class="Player">Player</div>
+  <div class="Player">
+    <div class="content">Player</div>
+  </div>
 </template>
 
 <script>

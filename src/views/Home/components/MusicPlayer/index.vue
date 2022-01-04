@@ -73,10 +73,11 @@ export default {
       border-radius: 1rem;
       background-color: @--w-alpha-90;
       backdrop-filter: saturate(180%) blur(20px);
+      box-shadow: 0 -0.1rem 0.6rem @--w-alpha-70;
     }
-    // /deep/ .close_btn_main::before {
-    //   color: @--color-danger;
-    // }
+    /deep/ .close_btn_main::before {
+      color: white;
+    }
   }
 }
 </style>
