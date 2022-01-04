@@ -10,7 +10,10 @@ module.exports = {
         .use("style-resources-loader")
         .loader("style-resources-loader")
         .options({
-          patterns: ["./src/assets/styles/variables.less"],
+          patterns: [
+            "./src/assets/styles/variables.less",
+            "./src/assets/styles/animation.less",
+          ],
         })
         .end();
     });

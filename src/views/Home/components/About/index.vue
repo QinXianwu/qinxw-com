@@ -126,6 +126,26 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .head .title {
+    font-size: 1.65rem;
+    font-size: 1.65rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .head .title {
+    font-size: 1.55rem;
+    font-size: 1.55rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .head .title {
+    font-size: 1.45rem;
+    font-size: 1.45rem;
+  }
+}
 @media screen and (max-width: 500px) {
   .container {
     font-size: 0.8rem;
@@ -134,8 +154,11 @@ export default {
       padding: 0.7rem 1.1rem;
     }
   }
+  .head .title {
+    font-size: 1.35rem;
+    font-size: 1.35rem;
+  }
 }
-
 @media screen and (max-width: 400px) {
   .container {
     font-size: 0.7rem;
@@ -143,6 +166,16 @@ export default {
     .label_list .label {
       padding: 0.8rem 0.9rem;
     }
+  }
+  .head .title {
+    font-size: 1.25rem;
+    font-size: 1.25rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .head .title {
+    font-size: 1.15rem;
+    font-size: 1.15rem;
   }
 }
 </style>

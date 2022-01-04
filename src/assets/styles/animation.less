@@ -74,3 +74,141 @@
     opacity: 1;
   }
 }
+
+// 旋转 360 动画
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-up-bl
+  从左下角向右上角 张开
+ * ----------------------------------------
+ */
+.scale-up-bl {
+  -webkit-animation: scale-up-bl 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-bl 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes scale-up-bl {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+  }
+}
+@keyframes scale-up-bl {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-out-bl
+  从右上角向左下角 收起
+ * ----------------------------------------
+ */
+.scale-out-bl {
+  -webkit-animation: scale-out-bl 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: scale-out-bl 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@-webkit-keyframes scale-out-bl {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-out-bl {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+
+// 播放器 动画
+/* 进场前 */
+.player-enter-from {
+  opacity: 0;
+}
+
+/* 从v-enter-from到v-enter-to */
+.player-enter-active {
+  -webkit-animation: scale-up-bl 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-bl 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  transition: all 0.5s ease-in;
+}
+
+/* 进场后 */
+.player-enter-to {
+  opacity: 1;
+}
+
+/* 出场前 */
+.player-leave-from {
+  opacity: 1;
+}
+
+/* 从v-leave-fro到v-leave-to */
+.player-leave-active {
+  -webkit-animation: scale-out-bl 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: scale-out-bl 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  transition: all 0.5s ease-in;
+}
+
+/* 出场后 */
+.player-leave-to {
+  opacity: 0;
+}

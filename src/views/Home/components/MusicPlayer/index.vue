@@ -1,26 +1,78 @@
 <template>
   <div class="MusicPlayer">
     <div class="content">
-      <!-- 海报/歌名 -->
-      <div class="content_l"></div>
-      <!-- 功能 -->
-      <div class="content_r"></div>
+      <transition name="player" mode="out-in" appear>
+        <!--
+          music_icon 不能与 player_main同层节点，
+          music_icon存在动画，在切换组件时，会延迟显示
+         -->
+        <div v-if="!showPlayer">
+          <div class="music_icon" @click="showPlayer = !showPlayer">
+            <img :src="require('./image/music_player.svg')" />
+          </div>
+        </div>
+        <div class="player" v-else>
+          <div class="player_main">
+            <CloseButton @close="showPlayer = !showPlayer" />
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
 <script>
+import CloseButton from "@/components/Base/CloseButton";
 export default {
   name: "MusicPlayer",
+  components: {
+    CloseButton,
+  },
   data: function () {
-    return {};
+    return {
+      showPlayer: false,
+    };
   },
 };
 </script>
 <style lang="less" scoped>
 .MusicPlayer {
-  width: 15rem;
-  height: 20rem;
+  position: fixed;
+  left: 0;
+  bottom: 0.75rem;
+  z-index: 7777;
   border-radius: 2rem;
-  background: @--b-alpha-40;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 1rem;
+  // background: @--b-alpha-40;
+  .music_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    background: @--color-primary;
+    border-radius: 50%;
+    // 使用 旋转动画
+    -webkit-animation: spin 3.25s linear; // 定义动画
+    animation: spin 3.25s linear infinite;
+    img {
+      width: 95%;
+      height: 95%;
+    }
+  }
+  .player {
+    &_main {
+      width: 20rem;
+      height: 25rem;
+      border-radius: 1rem;
+      background-color: @--w-alpha-90;
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+    // /deep/ .close_btn_main::before {
+    //   color: @--color-danger;
+    // }
+  }
 }
 </style>

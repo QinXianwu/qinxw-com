@@ -108,14 +108,6 @@ export default {
   opacity: 0;
 }
 
-.content {
-  position: absolute;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  color: @--txt-b-pure;
-}
-
 .scroll_down {
   position: absolute;
   bottom: 6rem;

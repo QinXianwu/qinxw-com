@@ -70,8 +70,8 @@ export default {
   // flex-wrap 属性规定flex容器是单行或者多行
   flex-wrap: wrap;
   .p_cell {
-    width: 17rem;
-    height: 17rem;
+    width: 15rem;
+    height: 15rem;
     padding: 1rem;
     margin: 1rem;
     background: @--txt-b-pure;
@@ -79,8 +79,8 @@ export default {
     transition: all 0.5s;
   }
   .p_cell .logo {
-    width: 17rem;
-    height: 17rem;
+    width: 15rem;
+    height: 15rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -98,23 +98,35 @@ export default {
 @media screen and (max-width: 800px) {
   .portfolio .p_cell,
   .portfolio .p_cell .logo {
-    width: 16rem;
-    height: 16rem;
+    width: 14rem;
+    height: 14rem;
+  }
+  .head .title {
+    font-size: 1.65rem;
+    font-size: 1.65rem;
   }
 }
 @media screen and (max-width: 700px) {
   .portfolio .p_cell,
   .portfolio .p_cell .logo {
-    width: 15rem;
-    height: 15rem;
+    width: 13rem;
+    height: 13rem;
+  }
+  .head .title {
+    font-size: 1.55rem;
+    font-size: 1.55rem;
   }
 }
 
 @media screen and (max-width: 600px) {
   .portfolio .p_cell,
   .portfolio .p_cell .logo {
-    width: 14rem;
-    height: 14rem;
+    width: 12rem;
+    height: 12rem;
+  }
+  .head .title {
+    font-size: 1.45rem;
+    font-size: 1.45rem;
   }
 }
 @media screen and (max-width: 500px) {
@@ -123,6 +135,10 @@ export default {
     width: 13rem;
     height: 13rem;
   }
+  .head .title {
+    font-size: 1.35rem;
+    font-size: 1.35rem;
+  }
 }
 @media screen and (max-width: 400px) {
   .portfolio .p_cell,
@@ -130,12 +146,20 @@ export default {
     width: 12rem;
     height: 12rem;
   }
+  .head .title {
+    font-size: 1.25rem;
+    font-size: 1.25rem;
+  }
 }
 @media screen and (max-width: 300px) {
   .portfolio .p_cell,
   .portfolio .p_cell .logo {
     width: 11rem;
     height: 11rem;
+  }
+  .head .title {
+    font-size: 1.15rem;
+    font-size: 1.15rem;
   }
 }
 </style>
