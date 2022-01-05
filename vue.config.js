@@ -51,15 +51,18 @@ module.exports = {
       "Access-Control-Allow-Origin": "*",
     },
     proxy: {
-      "/muxiaoguo": {
+      "/MuXiaoGuo": {
         target: "https://api.muxiaoguo.cn",
         ws: false,
         secure: false,
         changeOrigin: true,
-        pathRewrite: {
-          "/muxiaoguo": "/muxiaoguo",
-        },
       },
+      // "/NeteaseCloudMusic": {
+      //   target: "https://netease-cloud-music-api-seven-beige.vercel.app",
+      //   ws: false,
+      //   secure: false,
+      //   changeOrigin: true,
+      // },
     },
     before: (app) => {
       console.log(app);

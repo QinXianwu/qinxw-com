@@ -2,7 +2,7 @@
 
 import ajax from "@/api/ajaxForPromise";
 
-const apiUrl = "muxiaoguo";
+const apiUrl = "MuXiaoGuo";
 export default {
   /**
    * 一言

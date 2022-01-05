@@ -7,6 +7,10 @@
           music_icon存在动画，在切换组件时，会延迟显示
          -->
         <div v-if="!showPlayer">
+          <!-- 音符
+          <div class="music_note wobble-hor-bottom">
+            <img :src="require('./image/music_note.svg')" />
+          </div> -->
           <div class="music_icon" @click="showPlayer = !showPlayer">
             <img :src="require('./image/music_player.svg')" />
           </div>
@@ -49,6 +53,14 @@ export default {
   border-bottom-left-radius: 0;
   padding-left: 1rem;
   // background: @--b-alpha-40;
+  .music_note {
+    width: 1.5rem;
+    height: 1.5rem;
+    img {
+      width: 95%;
+      height: 95%;
+    }
+  }
   .music_icon {
     display: flex;
     align-items: center;
@@ -68,8 +80,8 @@ export default {
   }
   .player {
     &_main {
-      width: 20rem;
-      height: 25rem;
+      width: 25rem;
+      height: 33rem;
       border-radius: 1rem;
       background-color: @--w-alpha-90;
       backdrop-filter: saturate(180%) blur(20px);
