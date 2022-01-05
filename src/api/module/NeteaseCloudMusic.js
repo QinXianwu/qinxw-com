@@ -3,6 +3,7 @@
 import ajax from "@/api/ajaxForPromise";
 
 const apiUrl = "NeteaseCloudMusic";
+// const apiUrl = "https://cloud-music-api-lyart.vercel.app";
 
 export default {
   /**

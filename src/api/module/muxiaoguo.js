@@ -3,6 +3,7 @@
 import ajax from "@/api/ajaxForPromise";
 
 const apiUrl = "MuXiaoGuo";
+// const apiUrl = "https://api.muxiaoguo.cn";
 export default {
   /**
    * 一言
