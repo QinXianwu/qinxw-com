@@ -7,21 +7,20 @@
           music_icon存在动画，在切换组件时，会延迟显示
          -->
         <div v-if="!showPlayer">
-          <!-- 音符
-          <div class="music_note wobble-hor-bottom">
-            <img :src="require('./image/music_note.svg')" />
-          </div> -->
           <div class="music_icon" @click="showPlayer = !showPlayer">
             <img :src="require('./image/music_player.svg')" />
           </div>
         </div>
         <div class="player" v-else>
-          <div class="player_main">
+          <div class="player_content">
             <CloseButton @close="showPlayer = !showPlayer" />
             <Player />
           </div>
         </div>
       </transition>
+      <!-- <audio muted controls>
+        <source :src="musicList[0]" />
+      </audio> -->
     </div>
   </div>
 </template>
@@ -38,6 +37,11 @@ export default {
   data: function () {
     return {
       showPlayer: false,
+      musicList: [
+        "http://music.163.com/song/media/outer/url?id=65766.mp3",
+        "http://m801.music.126.net/20220105214028/859757b4e52a4a1f7cdf8067d1486fea/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/11983356173/ed2f/6024/be41/2dc456563c5f9c9535b75ecb066c0325.mp3",
+        "http://music.163.com/song/media/outer/url?id=66285.mp3",
+      ],
     };
   },
 };
@@ -79,9 +83,9 @@ export default {
     }
   }
   .player {
-    &_main {
-      width: 25rem;
-      height: 33rem;
+    &_content {
+      min-width: 26rem;
+      height: 16.5rem;
       border-radius: 1rem;
       background-color: @--w-alpha-90;
       backdrop-filter: saturate(180%) blur(20px);

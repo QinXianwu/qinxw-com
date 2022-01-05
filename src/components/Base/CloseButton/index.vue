@@ -16,6 +16,7 @@ export default {
 <style lang="less" scoped>
 .CloseButton {
   width: min-content;
+  min-height: 1.5rem;
   .close_btn {
     display: flex;
     justify-content: flex-end;
