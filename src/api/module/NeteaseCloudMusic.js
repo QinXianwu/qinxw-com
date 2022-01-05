@@ -2,7 +2,8 @@
 // https://cloud-music-api-lyart.vercel.app
 import ajax from "@/api/ajaxForPromise";
 
-const apiUrl = "https://netease-cloud-music-api-seven-beige.vercel.app";
+const apiUrl = "NeteaseCloudMusic";
+
 export default {
   /**
    * 手机号码、密码登录

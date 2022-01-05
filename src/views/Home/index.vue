@@ -43,12 +43,12 @@ export default {
   name: "Home",
   components: { Nav, Menu, About, Work, Log, MusicPlayer },
   async created() {
-    // let res = await this.$http.MuXiaoGuo.GetTianQi({
-    //   type: "2",
-    //   city: "广州",
-    // });
-    // res = JSON.parse(res || "{}");
-    // console.log(res);
+    let res = await this.$http.MuXiaoGuo.GetTianQi({
+      type: "2",
+      city: "广州",
+    });
+    res = JSON.parse(res || "{}");
+    console.log(res);
 
     let data = await this.$http.NeteaseCloudMusic.LoginCellPhone({
       phone: "13531045483",

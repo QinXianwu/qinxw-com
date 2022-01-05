@@ -56,13 +56,19 @@ module.exports = {
         ws: false,
         secure: false,
         changeOrigin: true,
+        pathRewrite: {
+          "^/MuXiaoGuo": "",
+        },
       },
-      // "/NeteaseCloudMusic": {
-      //   target: "https://netease-cloud-music-api-seven-beige.vercel.app",
-      //   ws: false,
-      //   secure: false,
-      //   changeOrigin: true,
-      // },
+      "/NeteaseCloudMusic": {
+        target: "https://netease-cloud-music-api-seven-beige.vercel.app",
+        ws: false,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/NeteaseCloudMusic": "",
+        },
+      },
     },
     before: (app) => {
       console.log(app);
