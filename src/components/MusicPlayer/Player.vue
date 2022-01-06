@@ -6,16 +6,16 @@
       <div class="poster_img">
         <img :src="url" />
       </div>
-      <div class="poster_main">
+      <div class="player_main">
         <div class="music-info">
           <div class="music-name">光年之外</div>
           <div class="music-author">邓紫棋</div>
         </div>
-        <div class="poster-btn">
+        <div class="player-btn">
           <div class="previous">
             <img :src="require('./image/previous.svg')" />
           </div>
-          <div class="play" @click="isPlay = !isPlay">
+          <div class="play" @click="handlePlay">
             <img :src="require('./image/pause.svg')" v-if="isPlay" />
             <img :src="require('./image/play.svg')" v-else />
           </div>
@@ -43,7 +43,13 @@ export default {
       url: "https://y.qq.com/music/photo_new/T001R500x500M000001fNHEf1SFEFN.jpg",
     };
   },
-  computed: {},
+  methods: {
+    handlePlay() {
+      this.isPlay = !this.isPlay;
+      if (this.isPlay) this.$emit("play");
+      else this.$emit("pause");
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -73,7 +79,7 @@ export default {
     background-position: center;
     filter: blur(0.3rem);
   }
-  .poster_main {
+  .player_main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,7 +99,7 @@ export default {
       color: @--b-alpha-80;
     }
   }
-  .poster-btn {
+  .player-btn {
     display: flex;
     align-items: center;
     .previous,
@@ -119,12 +125,12 @@ export default {
   .lyrics {
     display: flex;
     flex-direction: column;
-    max-width: 18rem;
+    max-width: 15.5rem;
     margin: 0.5rem 3rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.5rem;
     color: @--txt-b-pure;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.13rem;
     transition: all 0.5s;
     span:nth-child(1) {
       text-align: left;

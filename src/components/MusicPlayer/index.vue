@@ -14,13 +14,18 @@
         <div class="player" v-else>
           <div class="player_content">
             <CloseButton @close="showPlayer = !showPlayer" />
-            <Player />
+            <Player @play="ready" @pause="pause" />
           </div>
         </div>
       </transition>
-      <!-- <audio muted controls>
-        <source :src="musicList[0]" />
+      <!-- <audio muted controls autoplay>
+        <source :src="musicUrl" />
       </audio> -->
+      <audio muted ref="audio" volume="0.4" :controls="false" :src="musicUrl">
+        <!-- @play="ready"
+        @pause="pause" -->
+        <source :src="musicUrl" />
+      </audio>
     </div>
   </div>
 </template>
@@ -37,12 +42,25 @@ export default {
   data: function () {
     return {
       showPlayer: false,
-      musicList: [
+      musicUrl: "",
+      musicUrlList: [
         "http://music.163.com/song/media/outer/url?id=65766.mp3",
         "http://m801.music.126.net/20220105214028/859757b4e52a4a1f7cdf8067d1486fea/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/11983356173/ed2f/6024/be41/2dc456563c5f9c9535b75ecb066c0325.mp3",
         "http://music.163.com/song/media/outer/url?id=66285.mp3",
       ],
     };
+  },
+  created() {
+    this.musicUrl = this.musicUrlList[0];
+  },
+  methods: {
+    ready() {
+      this.$refs.audio.play();
+      this.$refs.audio.muted = false;
+    },
+    pause() {
+      this.$refs.audio.pause();
+    },
   },
 };
 </script>
