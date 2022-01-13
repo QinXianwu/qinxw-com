@@ -1,6 +1,7 @@
 // https://api.muxiaoguo.cn/
 
 import ajax from "@/api/ajaxForPromise";
+import { MU_XIAO_GUO } from "../config";
 
 const apiUrl = "MuXiaoGuo";
 // const apiUrl = "https://api.muxiaoguo.cn";
@@ -15,7 +16,10 @@ export default {
     return ajax({
       url: apiUrl + "/api/yiyan",
       type: "POST",
-      data: params,
+      data: {
+        ...params,
+        api_key: MU_XIAO_GUO.YIYAN_API_KEY,
+      },
     });
   },
   /**
@@ -29,7 +33,10 @@ export default {
     return ajax({
       url: apiUrl + "/api/tianqi",
       type: "POST",
-      data: params,
+      data: {
+        ...params,
+        api_key: MU_XIAO_GUO.TIQI_API_KEY,
+      },
     });
   },
 };
