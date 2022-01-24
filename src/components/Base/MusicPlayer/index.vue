@@ -10,7 +10,7 @@
           <div
             class="music_icon"
             :class="{ music_icon_animation: isPlay }"
-            @click="$store.commit('musicPlayer/setShowPlayer', !showPlayer)"
+            @click="$store.commit('musicPlayer/SET_SHOW_PLAYER', !showPlayer)"
           >
             <img :src="require('./image/music_player.svg')" />
           </div>
@@ -18,7 +18,7 @@
         <div class="player" v-else>
           <div class="player_content">
             <CloseButton
-              @close="$store.commit('musicPlayer/setShowPlayer', !showPlayer)"
+              @close="$store.commit('musicPlayer/SET_SHOW_PLAYER', !showPlayer)"
             />
             <Player />
           </div>
@@ -56,7 +56,12 @@ export default {
     },
   },
   created() {
-    this.$store.commit("musicPlayer/setMusicUrl", this.musicUrlMap[0]);
+    this.getMusicList();
+  },
+  methods: {
+    async getMusicList() {
+      await this.$store.dispatch("musicPlayer/GetMusicList");
+    },
   },
   computed: {
     isPlay() {

@@ -16,7 +16,7 @@
           </div>
           <div
             class="play"
-            @click="$store.commit('musicPlayer/setIsPlay', !isPlay)"
+            @click="$store.commit('musicPlayer/SET_IS_PLAY', !isPlay)"
           >
             <img :src="require('./image/pause.svg')" v-if="isPlay" />
             <img :src="require('./image/play.svg')" v-else />
