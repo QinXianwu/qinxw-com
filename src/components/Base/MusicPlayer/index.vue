@@ -7,23 +7,31 @@
           music_icon存在动画，在切换组件时，会延迟显示
          -->
         <div v-if="!showPlayer">
-          <div class="music_icon" @click="showPlayer = !showPlayer">
+          <div
+            class="music_icon"
+            :class="{ music_icon_animation: isPlay }"
+            @click="$store.commit('musicPlayer/setShowPlayer', !showPlayer)"
+          >
             <img :src="require('./image/music_player.svg')" />
           </div>
         </div>
         <div class="player" v-else>
           <div class="player_content">
-            <CloseButton @close="showPlayer = !showPlayer" />
-            <Player @play="ready" @pause="pause" />
+            <CloseButton
+              @close="$store.commit('musicPlayer/setShowPlayer', !showPlayer)"
+            />
+            <Player />
           </div>
         </div>
       </transition>
-      <!-- <audio muted controls autoplay>
-        <source :src="musicUrl" />
-      </audio> -->
-      <audio muted ref="audio" volume="0.4" :controls="false" :src="musicUrl">
-        <!-- @play="ready"
-        @pause="pause" -->
+      <!-- :muted="false" 关闭静音 -->
+      <audio
+        ref="audio"
+        volume="0.10"
+        :muted="false"
+        :src="musicUrl"
+        :controls="false"
+      >
         <source :src="musicUrl" />
       </audio>
     </div>
@@ -39,27 +47,29 @@ export default {
     CloseButton,
     Player,
   },
-  data: function () {
-    return {
-      showPlayer: false,
-      musicUrl: "",
-      musicUrlList: [
-        "http://music.163.com/song/media/outer/url?id=65766.mp3",
-        "http://m801.music.126.net/20220105214028/859757b4e52a4a1f7cdf8067d1486fea/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/11983356173/ed2f/6024/be41/2dc456563c5f9c9535b75ecb066c0325.mp3",
-        "http://music.163.com/song/media/outer/url?id=66285.mp3",
-      ],
-    };
+  watch: {
+    isPlay(val) {
+      // 播放
+      if (val) this.$refs.audio.play();
+      // 暂停
+      else this.$refs.audio.pause();
+    },
   },
   created() {
-    this.musicUrl = this.musicUrlList[0];
+    this.$store.commit("musicPlayer/setMusicUrl", this.musicUrlMap[0]);
   },
-  methods: {
-    ready() {
-      this.$refs.audio.play();
-      this.$refs.audio.muted = false;
+  computed: {
+    isPlay() {
+      return this.$store.state.musicPlayer.isPlay;
     },
-    pause() {
-      this.$refs.audio.pause();
+    showPlayer() {
+      return this.$store.state.musicPlayer.showPlayer;
+    },
+    musicUrl() {
+      return this.$store.state.musicPlayer.musicUrl;
+    },
+    musicUrlMap() {
+      return this.$store.state.musicPlayer.musicUrlMap;
     },
   },
 };
@@ -92,9 +102,12 @@ export default {
     cursor: pointer;
     background: @--color-primary;
     border-radius: 50%;
-    // 使用 旋转动画
-    -webkit-animation: spin 3.25s linear; // 定义动画
-    animation: spin 3.25s linear infinite;
+    &_animation {
+      // 使用 旋转动画
+      -webkit-animation: spin 3.25s linear; // 定义动画
+      animation: spin 3.25s linear infinite;
+    }
+
     img {
       width: 95%;
       height: 95%;

@@ -2,9 +2,8 @@
 <template>
   <div class="Player">
     <div class="content">
-      <!-- <div class="poster" :style="`background-image: url(${url})`"></div> -->
       <div class="poster_img">
-        <img :src="url" />
+        <img :src="posterImgUrl" />
       </div>
       <div class="player_main">
         <div class="music-info">
@@ -15,7 +14,10 @@
           <div class="previous">
             <img :src="require('./image/previous.svg')" />
           </div>
-          <div class="play" @click="handlePlay">
+          <div
+            class="play"
+            @click="$store.commit('musicPlayer/setIsPlay', !isPlay)"
+          >
             <img :src="require('./image/pause.svg')" v-if="isPlay" />
             <img :src="require('./image/play.svg')" v-else />
           </div>
@@ -35,19 +37,18 @@
 <script>
 export default {
   name: "Player",
-  data() {
-    return {
-      isPlay: false,
-      lyrics1: "感受停在我发端的指尖",
-      lyrics2: "如何瞬间冻结时间",
-      url: "https://y.qq.com/music/photo_new/T001R500x500M000001fNHEf1SFEFN.jpg",
-    };
-  },
-  methods: {
-    handlePlay() {
-      this.isPlay = !this.isPlay;
-      if (this.isPlay) this.$emit("play");
-      else this.$emit("pause");
+  computed: {
+    isPlay() {
+      return this.$store.state.musicPlayer.isPlay;
+    },
+    lyrics1() {
+      return this.$store.state.musicPlayer.lyrics1;
+    },
+    lyrics2() {
+      return this.$store.state.musicPlayer.lyrics2;
+    },
+    posterImgUrl() {
+      return this.$store.state.musicPlayer.posterImgUrl;
     },
   },
 };

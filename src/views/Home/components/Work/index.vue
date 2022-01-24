@@ -31,7 +31,6 @@ export default {
         {
           url: require("./image/Avatar-logo.png"),
         },
-        {},
       ],
     };
   },

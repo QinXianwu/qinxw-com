@@ -31,7 +31,7 @@ export default {
     }
     &_main::before {
       content: "\2716";
-      color: @--txt-b-pure;
+      color: @--txt-b-pure; // 关闭图标
     }
     &_main:hover {
       -webkit-animation: spin 1s linear; // 定义动画

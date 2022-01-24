@@ -8,9 +8,6 @@ export default {
     setShowMenu(state, value) {
       state.showMenu = value;
     },
-    setThemeTitle(state, value) {
-      state.themeTitle = value;
-    },
   },
   actions: {},
 };
