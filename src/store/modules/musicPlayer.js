@@ -5,7 +5,7 @@ export default {
   state: {
     showPlayer: false, // 是否显示播放器
     musicUrl: "", // 音频url
-    musicUrlMap: [], // 音频list
+    musicUrlMap: null, // 音频list
     isPlay: false, // 是否播放
     lyrics1: "感受停在我发端的指尖", // 歌词1
     lyrics2: "如何瞬间冻结时间", // 歌词2
@@ -37,7 +37,7 @@ export default {
   },
   actions: {
     async GetMusicList({ commit, state }, isRefresh) {
-      if (state.musicUrlMap.length > 0 && !isRefresh) return;
+      if (state.musicUrlMap?.length > 0 && !isRefresh) return;
       // eslint-disable-next-line no-unused-vars
       const res = await api.MuXiaoGuo.GetYiYan();
       const musicUrlMap = [
