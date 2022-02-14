@@ -1,6 +1,6 @@
 <template>
   <router-view />
-  <!-- 测试提交到gitee和github是否同步  -->
+  <!-- 测试提交到gitee和github是否同步 -->
 </template>
 <script>
 // html禁止使用右键
